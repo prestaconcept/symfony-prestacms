@@ -76,3 +76,7 @@ Released under the MIT License
 [6]: https://github.com/prestaconcept/PrestaSitemapBundle
 [7]: https://github.com/prestaconcept/PrestaCMSMediaBundle
 [8]: https://github.com/prestaconcept/PrestaCMSThemeBasicBundle
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/prestaconcept/symfony-prestacms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
