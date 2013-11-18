@@ -66,10 +66,10 @@ class AppKernel extends Kernel
             new Presta\CMSFAQBundle\PrestaCMSFAQBundle(),
 
             //PrestaCMS-Sandbox
-//            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-//            new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
-//            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-//            new Application\Presta\CMSCoreBundle\ApplicationPrestaCMSCoreBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Application\Presta\CMSCoreBundle\ApplicationPrestaCMSCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

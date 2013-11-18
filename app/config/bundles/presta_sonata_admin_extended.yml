@@ -19,8 +19,8 @@ assetic:
     bundles:
         - SonataAdminBundle
         - PrestaSonataAdminExtendedBundle
-#        - ApplicationPrestaSonataAdminBundle
-#        - ApplicationPrestaCMSCoreBundle
+        - ApplicationSonataAdminBundle
+        - ApplicationPrestaCMSCoreBundle
         - PrestaCMSCoreBundle
         - PrestaComposerPublicBundle
 
@@ -29,7 +29,7 @@ sonata_admin:
     title_logo: ./bundles/prestasonataadminextended/img/logo_title.jpg
     templates:
         # default global templates
-#        layout:  ApplicationSonataAdminBundle::layout.html.twig
+        layout:  ApplicationSonataAdminBundle::layout.html.twig
         user_block: PrestaSonataAdminExtendedBundle:Core:user_block.html.twig
         dashboard:  PrestaSonataAdminExtendedBundle:Dashboard:two_columns.html.twig
 #        list:    PrestaSonataAdminExtendedBundle:CRUD:list.html.twig
