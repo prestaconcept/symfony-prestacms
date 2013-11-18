@@ -4,6 +4,16 @@ php:
   - 5.4
   - 5.5
 
-before_script: composer install -n
+before_script:
+  - pear install pear/PHP_CodeSniffer
+  - phpenv rehash
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - wget http://getcomposer.org/composer.phar
+  - php composer.phar install
+  - make install
 
-script: phpunit -c app
+script:
+  - phpcs --extensions=php -n --standard=PSR2 --report=full src
+
+notifications:
+  email: "nbastien@prestaconcept.net"
