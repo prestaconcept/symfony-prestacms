@@ -8,13 +8,13 @@ imports:
     - { resource: bundles/sonata_media.yml }
     - { resource: bundles/presta_cms_core.yml }
     - { resource: bundles/presta_cms_contact.yml }
-#    - { resource: '@PrestaCMSCKEditorBundle/Resources/config/config.yml' }
+    - { resource: '@PrestaCMSCKEditorBundle/Resources/config/config.yml' }
     - { resource: bundles/presta_sonata_navigation.yml }
     - { resource: bundles/presta_sonata_admin_extended.yml }
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
