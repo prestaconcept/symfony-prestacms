@@ -1,0 +1,89 @@
+{
+    "name": "presta/symfony-prestacms",
+    "license": "MIT",
+    "type": "project",
+    "description": "This is Prestaconcept's Symfony distribution packaged with everything you need to build website with PrestaCMS",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/ckeditor",
+                "version": "4.2.2",
+                "source": {
+                    "url": "https://github.com/ckeditor/ckeditor-releases.git",
+                    "type": "git",
+                    "reference": "tags/4.2.2/standard"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.3.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.2.*",
+        "twig/extensions": "1.0.*",
+        "symfony/assetic-bundle": "2.3.*",
+        "symfony/swiftmailer-bundle": "2.3.*",
+        "symfony/monolog-bundle": "2.3.*",
+        "sensio/distribution-bundle": "2.3.*",
+        "sensio/framework-extra-bundle": "2.3.*",
+        "sensio/generator-bundle": "2.3.*",
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "doctrine/phpcr-bundle": "1.0.0",
+        "doctrine/phpcr-odm": "1.0.0",
+        "symfony-cmf/core-bundle": "1.0.0",
+        "symfony-cmf/content-bundle": "1.0.0",
+        "symfony-cmf/menu-bundle": "1.0.0",
+        "symfony-cmf/block-bundle": "1.0.0",
+        "symfony-cmf/routing-bundle": "1.1.0",
+        "symfony-cmf/tree-browser-bundle": "1.0.0",
+
+        "jackalope/jackalope-doctrine-dbal": "1.0.0",
+
+        "presta/sonata-admin-extended-bundle": "1.*",
+
+        "presta/presta-cms": "1.0.0",
+        "presta/sonata-navigation-bundle": "1.0.*",
+        "presta/cms-sitemap-bridge-bundle": "1.0.*",
+        "presta/sonata-admin-extended-bundle": "1.0.*",
+        "presta/cms-ckeditor-bundle": "1.0.*",
+        "presta/cms-faq-bundle": "1.0.*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Presta\\ComposerPublicBundle\\Composer\\ScriptHandler::ComposerPublic"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Presta\\ComposerPublicBundle\\Composer\\ScriptHandler::ComposerPublic"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.3-dev"
+        }
+    }
+}
