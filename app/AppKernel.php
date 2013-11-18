@@ -17,7 +17,59 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            //Sonata
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
+            new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+
+            //Utils
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+
+            // Doctrine PHPCR
+            new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
+
+            // CMF bundles
+            new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
+            new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
+            new Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle(),
+            new Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle(),
+            new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle(),
+            new Symfony\Cmf\Bundle\BlockBundle\CmfBlockBundle(),
+
+            //PrestaAdmin
+            new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle(),
+            new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle(),
+            new Presta\SonataGedmoDoctrineExtensionsBundle\PrestaSonataGedmoDoctrineExtensionsBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
+            new Presta\ComposerPublicBundle\PrestaComposerPublicBundle(),
+
+            //PrestaCMS
+            new Presta\CMSCoreBundle\PrestaCMSCoreBundle(),
+            new Presta\CMSMediaBundle\PrestaCMSMediaBundle(),
+            new Presta\CMSThemeBasicBundle\PrestaCMSThemeBasicBundle(),
+            new Presta\CMSContactBundle\PrestaCMSContactBundle(),
+            new Presta\CMSSitemapBridgeBundle\PrestaCMSSitemapBridgeBundle(),
+            new Presta\SitemapBundle\PrestaSitemapBundle(),
+            new Presta\CMSCKEditorBundle\PrestaCMSCKEditorBundle(),
+            new Presta\CMSFAQBundle\PrestaCMSFAQBundle(),
+
+            //PrestaCMS-Sandbox
+//            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+//            new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
+//            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+//            new Application\Presta\CMSCoreBundle\ApplicationPrestaCMSCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,27 @@
+
+presta_sonata_admin_extended:
+    resource: "@PrestaSonataAdminExtendedBundle/Resources/config/routing.yml"
+    prefix:   /
+
+PrestaCMSCoreBundle:
+    resource: "@PrestaCMSCoreBundle/Resources/config/routing.xml"
+    prefix:   /admin/{_locale}/
+
+PrestaSitemapBundle:
+    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
+    prefix:   /
+
+presta_cms_contact:
+    resource: "@PrestaCMSContactBundle/Resources/config/routing.xml"
+    prefix:   /
+
+tree:
+    resource: "@SonataDoctrinePHPCRAdminBundle/Resources/config/routing/tree.xml"
+
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media

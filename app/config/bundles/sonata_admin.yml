@@ -1,0 +1,40 @@
+sonata_admin:
+    title:      Symfony PrestaCMS
+    title_logo: ./bundles/prestasonataadminextended/img/logo_title.jpg
+    templates:
+        # default global templates
+        layout:  ApplicationSonataAdminBundle::custom_layout.html.twig
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.block.service.text
+                settings:
+                    content: |
+                        <h2>Welcome in Symfony PrestaCMS Edition</h2>
+                        <p>
+                            Now your project is installed you should customize it to fit your needs
+                        </p>
+                        <p>
+                            <ul>
+                                <li>Create your website</li>
+                                <li>Build your page structurey</li>
+                                <li>Create a theme</li>
+                                <li>Create more blocks</li>
+                                <li>...</li>
+                            </ul>
+                        </p>
+                        <p>
+                            You can use it freely for your project, open / correct tickets on Github via Pull request.
+                        </p>
+                        <p>
+                            We hope it will help you on your project.
+                        </p>
+                        <p>
+                            Presta CMS is based on Symfony CMF so we would like to thanks people working on it.
+                        </p>
+                        <p>
+                            Presta CMS is sponsored by <a href="http://www.prestaconcept.net">PrestaConcept</a>
+                        </p>
+            - { position: right, type: presta_sonata_admin_extended.block.dashboard.user }
+            - { position: right, type: presta_sonata_admin_extended.block.dashboard.media }

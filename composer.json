@@ -46,6 +46,7 @@
         "jackalope/jackalope-doctrine-dbal": "1.0.0",
 
         "presta/sonata-admin-extended-bundle": "1.*",
+        "sonata-project/doctrine-orm-admin-bundle":"2.2.*",
 
         "presta/presta-cms": "1.0.0",
         "presta/sonata-navigation-bundle": "1.0.*",
