@@ -51,12 +51,13 @@ class AdminContext extends MinkContext
      */
     public function iFollowLinkWithClass($text, $class)
     {
-        $link = $this->getSession()->getPage()->find(
-            'xpath', sprintf("//*[@class='%s' and text() = '%s']", $class, $text)
-        );
+        $link = $this->getSession()->getPage()
+            ->find('xpath', sprintf("//*[@class='%s' and text() = '%s']", $class, $text));
 
         if (!$link) {
-            throw new ExpectationException(sprintf('Unable to follow the link with class: %s and text: %s', $class, $text), $this->getSession());
+            throw new ExpectationException(
+                sprintf('Unable to follow the link with class: %s and text: %s', $class, $text), $this->getSession()
+            );
         }
 
         $link->click();
@@ -72,7 +73,9 @@ class AdminContext extends MinkContext
         );
 
         if (!$link) {
-            throw new ExpectationException(sprintf('Unable to follow the nested link with class: %s', $class), $this->getSession());
+            throw new ExpectationException(
+                sprintf('Unable to follow the nested link with class: %s', $class), $this->getSession()
+            );
         }
 
         $link->click();

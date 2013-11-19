@@ -11,8 +11,8 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install
   - make install
-  - export NODE_PATH="$(pwd)/node_modules"
-  - npm install zombie@1.4.1
+  #- export NODE_PATH="$(pwd)/node_modules"
+  #- npm install zombie@1.4.1
   - bin/behat
 
 script:

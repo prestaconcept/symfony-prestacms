@@ -72,7 +72,10 @@ JS;
     public function iPressBlockEditButton($arg1)
     {
         $session = $this->getMainContext()->getSession();
-        $element = $session->getPage()->find('css', "#cms-zone-websitesandboxpagehomecontent .page-zone-block:first-child a.action-edit");
+        $element = $session->getPage()->find(
+            'css',
+            "#cms-zone-websitesandboxpagehomecontent .page-zone-block:first-child a.action-edit"
+        );
 
         if (!$element) {
             throw new ElementNotFoundException($session);
