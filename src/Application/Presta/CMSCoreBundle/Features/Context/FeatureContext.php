@@ -16,8 +16,7 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * @author Nicolas Bastien <nbastien@prestaconcept.net>
  */
-class FeatureContext extends MinkContext
-                  implements KernelAwareInterface
+class FeatureContext extends MinkContext implements KernelAwareInterface
 {
     private $kernel;
     private $parameters;
