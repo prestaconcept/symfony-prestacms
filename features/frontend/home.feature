@@ -1,4 +1,4 @@
-#@mink:zombie
+@frontend
 Feature: Fresh Symfony PrestaCMS installation
     In order to start developing a PrestaCMS application
     As a smart developer
