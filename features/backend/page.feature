@@ -1,4 +1,4 @@
-@mink:zombie
+#@mink:zombie
 Feature: Page Administration
     In order to manage pages
     I need to be able to list, read and update pages
@@ -7,7 +7,7 @@ Feature: Page Administration
         Given I am connected with "admin" and "admin" on "/admin"
         When I follow dashboard "Pages" link "List"
         Then I should see the "symfony-prestacms" website selection and a link with selected locale "en"
-        And I should see a tree of pages
+        #And I should see a tree of pages
 
 #Scenario: An admin see block configurations for a page
 #    Given I am on "/admin/cms/page/website/sandbox/en"

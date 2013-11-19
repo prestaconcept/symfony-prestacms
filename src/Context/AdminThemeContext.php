@@ -27,7 +27,7 @@ class AdminThemeContext extends BehatContext
     }
 
     /**
-     * @Then /^I should see the test theme configuration$/
+     * @Then /^I should see the creative theme configuration$/
      */
     public function iShouldSeeTheCreativeThemeConfiguration()
     {
