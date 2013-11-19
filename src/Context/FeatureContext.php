@@ -29,9 +29,9 @@ class FeatureContext extends AdminContext implements KernelAwareInterface
     {
         $this->parameters = $parameters;
 
-//        $this->useContext('theme', new AdminThemeContext);
+        $this->useContext('theme', new AdminThemeContext);
         $this->useContext('website', new AdminWebsiteContext());
-//        $this->useContext('page', new AdminPageContext);
+        $this->useContext('page', new AdminPageContext);
     }
 
     /**
@@ -60,5 +60,4 @@ class FeatureContext extends AdminContext implements KernelAwareInterface
     {
         return $this->kernel->getContainer()->get('doctrine_phpcr.odm.default_document_manager');
     }
-
 }
