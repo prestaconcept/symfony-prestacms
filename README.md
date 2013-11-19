@@ -16,8 +16,9 @@ This is Prestaconcept's Symfony distribution packaged with everything you need t
 1) Installation with composer
 -----------------------------
 
-    php composer.phar create-project presta/symfony-prestacms path/to/install
+Last development version :
 
+    composer create-project presta/symfony-prestacms path/to/install --dev --stability=dev
 
 2) Set-up your data
 -------------------
