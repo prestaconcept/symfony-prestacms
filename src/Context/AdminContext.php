@@ -9,7 +9,6 @@
  */
 namespace Context;
 
-use Behat\Behat\Context\BehatContext;
 use Behat\MinkExtension\Context\MinkContext;
 /**
  * @author Nicolas Bastien <nbastien@prestaconcept.net>
@@ -29,7 +28,6 @@ class AdminContext extends MinkContext
         $this->iAmConnectedWithOn($login, $pwd, $url);
         $this->assertPageContainsText($match);
     }
-
 
     /**
      * @Given /^I am connected with "([^"]*)" and "([^"]*)" on "([^"]*)"$/

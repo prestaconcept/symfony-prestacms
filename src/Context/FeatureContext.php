@@ -11,7 +11,6 @@ namespace Context;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
-use Behat\MinkExtension\Context\MinkContext;
 
 /**
  * @author Nicolas Bastien <nbastien@prestaconcept.net>
@@ -61,8 +60,5 @@ class FeatureContext extends AdminContext implements KernelAwareInterface
     {
         return $this->kernel->getContainer()->get('doctrine_phpcr.odm.default_document_manager');
     }
-
-
-
 
 }
