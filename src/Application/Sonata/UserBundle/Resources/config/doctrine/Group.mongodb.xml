@@ -7,7 +7,7 @@
     <document name="Application\Sonata\UserBundle\Document\Group" collection="fos_user_group">
 
 		<field fieldName="id" id="true" strategy="INCREMENT" />
-        
+
     </document>
 
 </doctrine-mongo-mapping>

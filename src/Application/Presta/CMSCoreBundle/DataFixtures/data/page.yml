@@ -1,0 +1,136 @@
+pages:
+    home:
+        name: 'home'
+        template: 'default'
+        meta:
+            title:
+                en: "Homepage"
+                fr: "Accueil"
+            keywords:
+                en: "cms symfony 2"
+                fr: "cms symfony 2"
+            description:
+                en: "Symfony PrestaCMS by Prestaconcept"
+                fr: "Symfony PrestaCMS by Prestaconcept"
+        zones:
+            content:
+                name: content
+                blocks:
+                    10:
+                        name: info
+                        type: presta_cms.block.simple
+                        editable: false
+                        settings:
+                            en:
+                                title: ''
+                                block_style: 'info'
+                                content: 'This is sample fixtures.'
+                            fr:
+                                title: ''
+                                block_style: 'info'
+                                content: 'Ceci est un exemple de bloc info.'
+                    15:
+                        name: main
+                        type: presta_cms.block.simple
+                        editable: true
+                        settings:
+                            en:
+                                title: 'Congratulation Symfony PrestaCMS is installed'
+                                content: |
+                                    <strong>PrestaCMS</strong> is a content management bundle based on Symfony2, SymfonyCMF and Sonata.<br/>
+                                    This is an open source project supported by PrestaConcept.
+                            fr:
+                                title: 'Félicitations Symfony PrestaCMS est installé'
+                                content: |
+                                    <strong>PrestaCMS</strong> est un bundle Symfony2 de gestion de contenu basé sur SymfonyCMF et Sonata<br/>
+                                    Ce projet est open source et supporté par PrestaConcept.
+                    30:
+                        name: container
+                        type: presta_cms.block.container
+                        editable: true
+                        settings:
+                            en:
+                                title: 'Container example'
+                                layout: '2-cols'
+                            fr:
+                                title: 'Exemple de conteneur'
+                                layout: '2-cols'
+                        children:
+                            10:
+                                name: col1
+                                type: presta_cms.block.simple
+                                editable: true
+                                settings:
+                                    en:
+                                        title: 'Left block'
+                                        content: this is just a simple text block
+                                    fr:
+                                        title: 'Block de gauche'
+                                        content: un example de bloc texte
+                            20:
+                                name: col2
+                                type: presta_cms.block.simple
+                                editable: true
+                                settings:
+                                    en:
+                                        title: 'Right block'
+                                        content: this is just a simple text block
+                                    fr:
+                                        title: 'Block de droite'
+                                        content: un example de bloc texte
+    404:
+        name: '404'
+        template: 'default'
+        meta:
+            title:
+                en: "404 - Page not found"
+                fr: "404 - Page introuvable"
+        zones:
+            content:
+                name: content
+                blocks:
+                    10:
+                        name: info
+                        type: presta_cms.block.simple
+                        editable: false
+                    15:
+                        name: main
+                        type: presta_cms.block.simple
+                        editable: true
+                        settings:
+                            en:
+                                title: '404 - Page not found'
+                                content: |
+                                    404 - Page not found page can be easily customize with PrestaCMS.
+                            fr:
+                                title: '404 - Page introuvable'
+                                content: |
+                                    Cette page peut-être facilement customisé avec PrestaCMS.
+    500:
+        name: '500'
+        template: 'default'
+        meta:
+            title:
+                en: "500 - Internal Server Error"
+                fr: "500 - Erreur interne"
+        zones:
+            content:
+                name: content
+                blocks:
+                    10:
+                        name: info
+                        type: presta_cms.block.simple
+                        editable: false
+                    15:
+                        name: main
+                        type: presta_cms.block.simple
+                        editable: true
+                        settings:
+                            en:
+                                title: '500 - Internal Server Error'
+                                content: |
+                                    500 - Internal Server Error page can be easily customize with PrestaCMS.
+                            fr:
+                                title: '500 - Erreur interne'
+                                content: |
+                                    Cette page peut-être facilement customisé avec PrestaCMS.

@@ -10,19 +10,19 @@ sonata_admin:
           - { position: right, type: presta_cms.block.dashboard.cms }
 
 presta_cms_core:
-    default_website: /website/sandbox
+    default_website: /website/symfony-prestacms
     default_locale: en
     websites:
-        prestacms-sandbox:
-            path: /website/sandbox
+        symfony-prestacms:
+            path: /website/symfony-prestacms
             hosts:
                 dev:
                     en:
                         locale: en
-                        host: dev-prestacms-sandbox.com
+                        host: www.dev-symfony-prestacms.com
                     fr:
                         locale: fr
-                        host: dev-prestacms-sandbox.fr
+                        host: www.dev-symfony-prestacms.fr
                 prod:
                     en:
                         locale: en

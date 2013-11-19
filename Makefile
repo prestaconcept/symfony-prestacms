@@ -64,6 +64,9 @@ ai:
 cs:
 	phpcs --extensions=php -n --standard=PSR2 --report=full src
 
+cs-fixer:
+	php-cs-fixer fix src
+
 cc:
 	rm -rf app/cache/*
 

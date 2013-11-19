@@ -23,6 +23,7 @@ assetic:
         - ApplicationPrestaCMSCoreBundle
         - PrestaCMSCoreBundle
         - PrestaComposerPublicBundle
+        - PrestaCMSThemeBasicBundle
 
 sonata_admin:
     title:      ' '
