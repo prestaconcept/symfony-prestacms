@@ -16,34 +16,36 @@ This is Prestaconcept's Symfony distribution packaged with everything you need t
 1) Installation with composer
 -----------------------------
 
-1. [install composer globally](http://getcomposer.org/doc/00-intro.md#globally) 
-   or do a : `curl -sS https://getcomposer.org/installer | php`
+1.   [install composer globally](http://getcomposer.org/doc/00-intro.md#globally) 
+     or do a : `curl -sS https://getcomposer.org/installer | php`
 
-2. create database and a database user (optional if you use root db user in step 4)
+2.   create database and a database user (optional if you use root db user in step 4)
 
-3. go to your working directory : `cd path/to/site`
+3.   go to your working directory : `cd path/to/site`
 
-4. run : `composer create-project presta/symfony-prestacms . --dev --stability=dev`
-   This will give you the last development version.
+4.   run : `composer create-project presta/symfony-prestacms . --dev --stability=dev`
+     This will give you the last development version.
 
-5. answer database questions
+5.   answer database questions
 
-6. answer remove versioning info = yes if you want to version your project
+6.   answer remove versioning info = yes if you want to version your project
 
-7. create a virtual host with 
-   `ServerName www.dev-symfony-prestacms.com` and
-   `ServerAlias www.dev-symfony-prestacms.fr`
-   or other names if you want, but change config in **app/config/bundles/presta_cms_core.yml**
+7.   create a virtual host with 
+     `ServerName www.dev-symfony-prestacms.com` and
+     `ServerAlias www.dev-symfony-prestacms.fr`
+     or other names if you want, but change config in **app/config/bundles/presta_cms_core.yml**
 
-8. run : `make configure`
+8.   run : `make configure`
 
-9. do a : `app/console doctrine:database:drop --force` if you created a database in step 2
+9.   do a : `app/console doctrine:database:drop --force` if you created a database in step 2
 
-10. run : `make install`
+10.   run : `make install`
 
-11. set proper permissions on **app/cache, app/logs and web/uploads**. See [Symfony documentation](http://symfony.com/doc/current/book/installation.html#configuration-and-setup)
+11.  set proper permissions on **app/cache, app/logs and web/uploads**. 
+See [Symfony documentation](http://symfony.com/doc/current/book/installation.html#configuration-and-setup)
 
-12. point to [english version of your site](http://www.dev-symfony-prestacms.com/app_dev.php) or [the french one](http://www.dev-symfony-prestacms.fr/app_dev.php)
+12.  point to [english version of your site](http://www.dev-symfony-prestacms.com/app_dev.php) 
+or [the french one](http://www.dev-symfony-prestacms.fr/app_dev.php)
 
 
 
