@@ -19,4 +19,7 @@ script:
   - phpcs --extensions=php -n --standard=PSR2 --report=full src
 
 notifications:
-  email: "nbastien@prestaconcept.net"
+  email:
+    recipients:
+      - "nbastien@prestaconcept.net"
+      - "aflaus@prestaconcept.net"
