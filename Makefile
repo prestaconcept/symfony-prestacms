@@ -14,8 +14,6 @@ configure:
 	php composer.phar install --prefer-dist
 	app/console assets:install web
 	app/console assetic:dump --env=prod
-	app/console presta:composer-public --force
-	app/console presta:composer-public --copy
 
 install:
 	app/console doctrine:database:create --env=$(ENV)
