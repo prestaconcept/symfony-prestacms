@@ -8,10 +8,11 @@ imports:
     #- { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_dashboard.yml' }
     - { resource: '@PrestaCMSFAQBundle/Resources/config/config_navigation.yml'}
     - { resource: '@PrestaCMSContactBundle/Resources/config/config_navigation.yml'}
+    - { resource: '@PrestaSonataGedmoDoctrineExtensionsBundle/Resources/config/config.yml'}
 
 parameters:
     locale:  en
-    locales: [fr, en]
+    locales: [fr, en, it, nl, es]
     presta_sonata_admin_extended.locales: [fr, en]
     presta_sonata_admin_extended.default_locale: en
 
@@ -32,5 +33,5 @@ sonata_admin:
         # default global templates
         layout:  ApplicationSonataAdminBundle::layout.html.twig
         user_block: PrestaSonataAdminExtendedBundle:Core:user_block.html.twig
-        dashboard:  PrestaSonataAdminExtendedBundle:Dashboard:two_columns.html.twig
+#        dashboard:  PrestaSonataAdminExtendedBundle:Dashboard:two_columns.html.twig
 #        list:    PrestaSonataAdminExtendedBundle:CRUD:list.html.twig
