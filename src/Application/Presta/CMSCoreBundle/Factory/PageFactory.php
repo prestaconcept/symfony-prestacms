@@ -25,6 +25,31 @@ class PageFactory extends BasePageFactory implements ModelFactoryInterface
      */
     protected function configureZones(array $page)
     {
+        if (!isset($page['zones']['content'])) {
+            $page['zones']['content'] = array(
+                'name' => 'content',
+                'blocks' => array(
+                    10 => array('name' => 'info', 'type' => 'presta_cms.block.simple')
+                )
+            );
+        }
+        if (!isset($page['zones']['left']) && $page['template'] == 'left-sidebar') {
+            $page['zones']['left'] = array(
+                'name' => 'left',
+                'blocks' => array(
+                    10 => array('name' => 'info', 'type' => 'presta_cms.block.simple')
+                )
+            );
+        }
+        if (!isset($page['zones']['right']) && $page['template'] == 'right-sidebar') {
+            $page['zones']['right'] = array(
+                'name' => 'right',
+                'blocks' => array(
+                    10 => array('name' => 'info', 'type' => 'presta_cms.block.simple')
+                )
+            );
+        }
+
         return $page;
     }
 
