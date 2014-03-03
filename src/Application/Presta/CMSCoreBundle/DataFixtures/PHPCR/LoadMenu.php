@@ -45,16 +45,13 @@ class LoadMenu extends BaseMenuFixture
         $yaml   = new Parser();
         $datas  = $yaml->parse(file_get_contents(__DIR__ . '/../data/page.yml'));
         foreach ($datas['pages'] as $key => $pageConfiguration) {
-            if (!isset($pageConfiguration['in_navigation']) || $pageConfiguration['in_navigation'] !== true) {
-                unset($pageConfiguration[$key]);
-                continue;
-            }
+            if (isset($pageConfiguration['in_navigation']) && $pageConfiguration['in_navigation'] === true) {
+                if (isset($pageConfiguration['meta']['title'])) {
+                    $pageConfiguration['title'] = $pageConfiguration['meta']['title'];
+                }
 
-            if (isset($pageConfiguration['meta']['title'])) {
-                $pageConfiguration['title'] = $pageConfiguration['meta']['title'];
+                $configuration['children'][] = $pageConfiguration;
             }
-
-            $configuration['children'][] = $pageConfiguration;
         }
 
         $main = $this->getFactory()->create($configuration);
