@@ -79,20 +79,6 @@ pages:
                                     fr:
                                         title: 'Block de droite'
                                         content: un example de bloc texte
-    page1:
-        name: 'Page 1'
-        in_navigation: true
-        meta:
-            title:
-                en: "Page 1"
-                fr: "Page 1"
-        children:
-            page1-2:
-                name: 'Page 1-2'
-                meta:
-                    title:
-                        en: "Page 1-2"
-                        fr: "Page 1-2"
     404:
         name: '404'
         template: 'default'
