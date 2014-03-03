@@ -2,6 +2,7 @@ pages:
     home:
         name: 'home'
         template: 'default'
+        in_navigation: true
         meta:
             title:
                 en: "Homepage"
