@@ -1,0 +1,21 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     presta-vm-mysql56.local
+    database_port:     ~
+    database_name:     PIC_profideo-espri
+    database_user:     jenkins
+    database_password: jenkins
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            MakeYourOwnToken
+
+    twitter.api_url: https://api.twitter.com/1.1/
+    twitter.consumer_key: MyTwitterConsumerKey
+    twitter.consumer_secret: MyTwitterConsumerSecret
+    twitter.access_token: MyTwitterAccessToken
+    twitter.access_token_secret: MyTwitterAccessTokenSecret
