@@ -8,13 +8,30 @@ Prestaconcept's Symfony PrestaCMS
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/47af6af1-4d02-4155-8c14-11e7d5620523/big.png)](https://insight.sensiolabs.com/projects/47af6af1-4d02-4155-8c14-11e7d5620523)
 
+## Overview ##
+
 This is Prestaconcept's Symfony distribution packaged with everything you need to build website with PrestaCMS.
 
 -> based on Symfony 2.3
 
+## Online Demonstration ##
 
-1) Installation with composer
------------------------------
+Sandbox is also deployed for a live demonstration :
+
+-   [Frontend site][5]
+-   [Administration Site][6]
+
+## Documentation ##
+
+:book: Documentation is available on [prestaconcept.github.io][4]
+
+## Issue tracker ##
+
+:clipboard: Issues are managed in [prestaconcept/open-source-management](https://github.com/prestaconcept/open-source-management) to centralize our open source activity.
+
+## Getting Starter ##
+
+### Installation with composer ###
 
 1.   [install composer globally](http://getcomposer.org/doc/00-intro.md#globally) 
      or do a : `curl -sS https://getcomposer.org/installer | php`
@@ -31,8 +48,8 @@ This is Prestaconcept's Symfony distribution packaged with everything you need t
 6.   answer remove versioning info = yes if you want to version your project
 
 7.   create a virtual host with 
-     `ServerName www.dev-symfony-prestacms.com` and
-     `ServerAlias www.dev-symfony-prestacms.fr`
+     `ServerName www.symfony-prestacms.com.dev` and
+     `ServerAlias www.symfony-prestacms.fr.dev`
      or other names if you want, but change config in **app/config/bundles/presta_cms_core.yml**
 
 8.   run : `make configure`
@@ -49,33 +66,17 @@ or [the french one](http://www.dev-symfony-prestacms.fr/app_dev.php)
 
 
 
-2) Set-up your data
--------------------
+### Set-up your data ###
 
   * Website
   * page structure
   * page factory
+  * run : `make refresh` to refresh our content
 
 
-3) Develop your PrestaCMS bundles
----------------------------------
+### Develop your PrestaCMS bundles ###
 
-
-
-
-What's inside?
----------------
-
-  * [**PrestaSonataAdminExtendedBundle**][1] - PrestaConcept Sonata Admin Extension
-  * [**PrestaSonataNavigationBundle**][1] - Manage your SonataAdmin navigation
-  * [**PrestaSonataGedmoDoctrineExtensionsBundle**][3] - Translate your entities with Gedmo DoctrineExtensions
-  * [**PrestaCMSCKEditorBundle**][4] - Bring CKEditor in SonataAdmin
-  * [**PrestaCMSCoreBundle**][5] - PrestaCMS Core
-  * [**PrestaSitemapBundle**][6] - Mange you XML Sitemap
-  * [**PrestaCMSMediaBundle**][7] - Adds SonataMedia in PrestaCMS
-  * [**PrestaCMSThemeBasicBundle**][8] - PrestaCMS basic theme example
-
-
+:book: Documentation is available on [prestaconcept.github.io][4]
 
 ## Ask for help ##
 
@@ -98,15 +99,7 @@ Thanks to
 Released under the MIT License
 
 
-[1]: https://github.com/prestaconcept/PrestaSonataAdminExtendedBundle
-[2]: https://github.com/prestaconcept/PrestaSonataNavigationBundle
-[3]: https://github.com/prestaconcept/PrestaSonataGedmoDoctrineExtensionsBundle
-[4]: https://github.com/prestaconcept/PrestaCMSCoreBundle
-[5]: https://github.com/prestaconcept/PrestaCMSCKEditorBundle
-[6]: https://github.com/prestaconcept/PrestaSitemapBundle
-[7]: https://github.com/prestaconcept/PrestaCMSMediaBundle
-[8]: https://github.com/prestaconcept/PrestaCMSThemeBasicBundle
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/prestaconcept/symfony-prestacms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+[3]: https://groups.google.com/forum/?hl=fr&fromgroups#!forum/prestacms-devs
+[4]: http://prestaconcept.github.io
+[5]: http://sandbox.prestacms.com/
+[6]: http://sandbox.prestacms.com/admin
