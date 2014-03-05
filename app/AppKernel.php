@@ -100,8 +100,7 @@ class AppKernel extends Kernel
     {
         $envParameters = $this->getEnvParameters();
 
-        if ($this->getEnvironment() === 'dev'
-            || (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1")) {
+        if (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1") {
             return '/dev/shm/vagrant/cache/' .  $this->environment;
         }
 
@@ -117,8 +116,7 @@ class AppKernel extends Kernel
     {
         $envParameters = $this->getEnvParameters();
 
-        if ($this->getEnvironment() === 'dev'
-            || (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1")) {
+        if (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1") {
             return '/dev/shm/vagrant/logs';
         }
 
