@@ -29,7 +29,7 @@ Sandbox is also deployed for a live demonstration :
 
 :clipboard: Issues are managed in [prestaconcept/open-source-management](https://github.com/prestaconcept/open-source-management) to centralize our open source activity.
 
-## Getting Starter ##
+## Getting Started ##
 
 ### Installation with composer ###
 
