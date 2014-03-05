@@ -1,0 +1,18 @@
+apache:
+    modules:
+      - php
+
+    user: apache
+    group: apache
+    mpm_module: prefork
+# set to false if using varnish, because default_vhost forced on port 80 in puppetlabs-apache module...
+    default_vhost: false
+# managing default vhost outside of puppetlabs-apache module
+    vhosts:
+        default_custom:
+            default_vhost: true
+            docroot: /var/www/html
+            add_listen: false
+            ip: *
+
+

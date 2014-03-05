@@ -1,0 +1,11 @@
+:backends: yaml
+:yaml:
+  :datadir: /var/www/Workspace/vagrant/puppet/hiera-data
+:hierarchy:
+  - centos6
+  - apache
+  - mysql
+  - php54
+  - common
+:logger: console
+:merge_behavior: deeper

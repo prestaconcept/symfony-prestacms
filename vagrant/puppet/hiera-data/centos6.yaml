@@ -1,0 +1,17 @@
+---
+server:
+    packages:
+      - ftp
+      - wget
+      - man
+      - man-pages
+      - rsync
+      - vim-enhanced
+      - telnet
+      - git
+      - elinks
+      - bind-utils
+      - man
+      - man-pages
+      - gcc-c++
+      - mailx

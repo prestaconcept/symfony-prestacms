@@ -1,0 +1,94 @@
+# This file is managed by Puppet. DO NOT EDIT.
+<% if scope.lookupvar('varnish::bool_debian_start') -%>
+START=<%= scope.lookupvar('varnish::bool_debian_start') %>
+<% end -%>
+
+<% if scope.lookupvar('varnish::instance') != '' -%>
+INSTANCE=<%= scope.lookupvar('varnish::instance') %>
+<% end -%>
+
+<% if scope.lookupvar('varnish::nfiles') != '' -%>
+NFILES=<%= scope.lookupvar('varnish::nfiles') %>
+<% end -%>
+<% if scope.lookupvar('varnish::memlock') != '' -%>
+MEMLOCK=<%= scope.lookupvar('varnish::memlock') %>
+<% end -%>
+<% if scope.lookupvar('varnish::nprocs') != '' -%>
+NPROCS=<%= scope.lookupvar('varnish::nprocs') %>
+<% end -%>
+
+<% if scope.lookupvar('varnish::reload_vcl') != '' -%>
+RELOAD_VCL=<%= scope.lookupvar('varnish::reload_vcl') %>
+<% end -%>
+
+<% if scope.lookupvar('varnish::vcl_conf') != '' -%>
+VARNISH_VCL_CONF=<%= scope.lookupvar('varnish::vcl_conf') %>
+<% end -%>
+<% if scope.lookupvar('varnish::listen_address') != '' -%>
+VARNISH_LISTEN_ADDRESS=<%= scope.lookupvar('varnish::listen_address') %>
+<% end -%>
+<% if scope.lookupvar('varnish::port') != '' -%>
+VARNISH_LISTEN_PORT=<%= scope.lookupvar('varnish::port') %>
+<% end -%>
+<% if scope.lookupvar('varnish::admin_listen_address') != '' -%>
+VARNISH_ADMIN_LISTEN_ADDRESS=<%= scope.lookupvar('varnish::admin_listen_address') %>
+<% end -%>
+<% if scope.lookupvar('varnish::admin_listen_port') != '' -%>
+VARNISH_ADMIN_LISTEN_PORT=<%= scope.lookupvar('varnish::admin_listen_port') %>
+<% end -%>
+<% if scope.lookupvar('varnish::min_threads') != '' -%>
+VARNISH_MIN_THREADS=<%= scope.lookupvar('varnish::min_threads') %>
+<% end -%>
+<% if scope.lookupvar('varnish::max_threads') != '' -%>
+VARNISH_MAX_THREADS=<%= scope.lookupvar('varnish::max_threads') %>
+<% end -%>
+<% if scope.lookupvar('varnish::thread_timeout') != '' -%>
+VARNISH_THREAD_TIMEOUT=<%= scope.lookupvar('varnish::thread_timeout') %>
+<% end -%>
+<% if scope.lookupvar('varnish::secret_file') != '' -%>
+VARNISH_SECRET_FILE=<%= scope.lookupvar('varnish::secret_file') %>
+<% end -%>
+<% if scope.lookupvar('varnish::ttl') != '' -%>
+VARNISH_TTL=<%= scope.lookupvar('varnish::ttl') %>
+<% end -%>
+
+<% if scope.lookupvar('varnish::storage_size') != ''and
+      scope.lookupvar('varnish::storage_file') != '' -%>
+VARNISH_STORAGE_SIZE=<%= scope.lookupvar('varnish::storage_size') %>
+VARNISH_STORAGE_FILE=<%= scope.lookupvar('varnish::storage_file') %>
+
+<%   if scope.lookupvar('varnish::storage_file') == 'malloc' -%>
+VARNISH_STORAGE="${VARNISH_STORAGE_FILE},${VARNISH_STORAGE_SIZE}"
+<%   else -%>
+VARNISH_STORAGE="file,${VARNISH_STORAGE_FILE},${VARNISH_STORAGE_SIZE}"
+<%   end -%>
+<% end -%>
+
+DAEMON_OPTS=" \
+    -a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
+<% if scope.lookupvar('varnish::vcl_conf') != '' -%>
+    -f ${VARNISH_VCL_CONF} \
+<% end -%>
+<% if scope.lookupvar('varnish::admin_listen_address') != '' -%>
+    -T ${VARNISH_ADMIN_LISTEN_ADDRESS}<% if scope.lookupvar('varnish::admin_listen_port') != '' -%>:${VARNISH_ADMIN_LISTEN_PORT}<% end -%> \
+<% end -%>
+<% if scope.lookupvar('varnish::ttl') != '' -%>
+    -t ${VARNISH_TTL} \
+<% end -%>
+<% if scope.lookupvar('varnish::min_threads') != '' and 
+      scope.lookupvar('varnish::max_threads') != '' and 
+      scope.lookupvar('varnish::thread_timeout') != '' -%>
+    -w ${VARNISH_MIN_THREADS},${VARNISH_MAX_THREADS},${VARNISH_THREAD_TIMEOUT} \
+<% end -%>
+<% if scope.lookupvar('varnish::secret_file') != '' -%>
+    -S ${VARNISH_SECRET_FILE} \
+<% end -%>
+<% if scope.lookupvar('varnish::storage_size') != '' and
+      scope.lookupvar('varnish::storage_file') != '' -%>
+    -s ${VARNISH_STORAGE} \
+<% end -%>
+<% if scope.lookupvar('varnish::instance') != '' and 
+      scope.lookupvar('varnish::instance') != 'default' -%>
+    -n ${INSTANCE} \
+<% end -%>
+"
