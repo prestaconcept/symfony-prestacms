@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="symfony-prestacms" default="build">
+
+    <property environment="env"/>
+    <property name="releaseName" value="${basedir}/build/release_${env.JOB_NAME}_${env.BUILD_ID}.tar.gz"/>
+    <property name="serverName" value="jenkins@presta-filer.local" />
+    <property name="releaseDirectory" value="releases/${env.JOB_NAME}/build/" />
+
+    <target name="build" depends="prepare,phpcs-ci,lint,phpunit,behat,phpmd-ci,phpcpd" />
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/" />
+        <exec executable="rm" failonerror="false">
+            <arg line="composer.phar" />
+        </exec>
+        <delete file="${basedir}/composer.lock" failonerror="false" />
+        <delete file="${basedir}/app/config/parameters.yml" failonerror="false" />
+    </target>
+
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/build/"/>
+        <mkdir dir="${basedir}/build/junit"/>
+        <mkdir dir="${basedir}/build/logs/"/>
+        <mkdir dir="${basedir}/build/coverage/"/>
+        <mkdir dir="${basedir}/build/behat"/>
+        <copy file="${basedir}/app/config/parameters.yml.jenkins.dist" tofile="${basedir}/app/config/parameters.yml"/>
+        <exec executable="wget" failonerror="true">
+            <arg line="http://getcomposer.org/composer.phar" description="Download Composer"/>
+        </exec>
+        <exec executable="php" failonerror="true" description="Run Install for Composer">
+            <env key="SYMFONY__ENV" value="test"/>
+            <arg line="composer.phar install --dev --no-interaction"/>
+        </exec>
+        <exec executable="php" failonerror="true" description="Run cache:clear in test environment">
+            <arg line="app/console cache:clear --env=test" />
+        </exec>
+        <exec executable="${basedir}/bin/ci_init_vhost" failonerror="false">
+            <arg line="web/" />
+        </exec>
+        <exec executable="make" failonerror="false">
+            <arg value="test-clean"/>
+        </exec>
+        <exec executable="make" failonerror="false">
+            <arg value="test-install"/>
+        </exec>
+    </target>
+
+    <target name="lint" description="Perform syntax check of sourcecode files">
+        <apply executable="php" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/src/">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+        </apply>
+    </target>
+
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="${basedir}/bin/phpunit" failonerror="true">
+            <arg line="-c ${basedir}/app/
+                 --coverage-html ${basedir}/build/coverage
+                 --log-junit ${basedir}/build/junit/phpunit.xml
+                 --coverage-clover ${basedir}/build/logs/clover.xml" />
+        </exec>
+    </target>
+
+    <target name="behat" description="Validates features">
+        <exec executable="make" failonerror="false">
+            <arg value="test-clean"/>
+        </exec>
+        <exec executable="make" failonerror="false">
+            <arg value="test-install"/>
+        </exec>
+        <exec executable="${basedir}/bin/behat" failonerror="true">
+            <arg line="--profile jenkins" />
+        </exec>
+    </target>
+
+    <target name="phpmd-ci" description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
+        <exec executable="${basedir}/bin/phpmd" failonerror="false">
+            <arg path="${basedir}/src" />
+            <arg value="xml" />
+            <arg value="codesize,design,unusedcode,naming" />
+            <arg value="--reportfile" />
+            <arg value="${basedir}/build/logs/pmd.xml" />
+        </exec>
+    </target>
+
+    <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
+        <exec executable="${basedir}/bin/phpcs" failonerror="false">
+            <arg value="-p" />
+            <arg value="-n" />
+            <arg value="--extensions=php" />
+            <arg value="--report=checkstyle" />
+            <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+            <arg value="--standard=PSR2" />
+            <arg path="${basedir}/src" />
+        </exec>
+    </target>
+
+    <target name="phpcpd" description="Find duplicate code using PHPCPD">
+        <exec executable="${basedir}/bin/phpcpd" failonerror="false">
+            <arg value="--log-pmd" />
+            <arg value="${basedir}/build/logs/pmd-cpd.xml" />
+            <arg path="${basedir}/src" />
+        </exec>
+    </target>
+
+    <target name="build-release" description="Generate a new release file">
+        <mkdir dir="${env.JENKINS_HOME}/releases/"/>
+
+        <exec executable="php" failonerror="true" description="Remove dev dependencies and generate optimize autoload file">
+            <env key="SYMFONY__ENV" value="prod"/>
+            <arg line="composer.phar install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress"/>
+        </exec>
+
+        <exec executable="php" failonerror="true" >
+            <arg line="app/console assetic:dump --env=prod" />
+        </exec>
+
+        <exec executable="tar" failonerror="true">
+            <arg value="-cz" />
+            <arg line=" --exclude build" />
+            <arg line=" --exclude .git" />
+            <arg line=" --exclude app/config/parameters.yml" />
+            <arg line=" --exclude app/cache/*" />
+            <arg line=" --exclude app/logs/*" />
+            <arg line=" --exclude composer.phar" />
+            <arg line=" -f ${releaseName} ." />
+        </exec>
+
+        <exec executable="scp" failonerror="true">
+            <arg value="${releaseName}" />
+            <arg line="jenkins@presta-filer.local:${releaseDirectory}" />
+        </exec>
+
+        <sshexec command="ls -1dt ${releaseDirectory}* | tail -n +4 | xargs rm -rf "
+                 host="presta-filer.local"
+                 username="jenkins"
+                 keyfile="~/.ssh/id_rsa" />
+    </target>
+</project>
