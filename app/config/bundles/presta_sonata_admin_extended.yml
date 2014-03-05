@@ -6,8 +6,6 @@ imports:
     - { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config.yml'}
     - { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_navigation.yml' }
     #- { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_dashboard.yml' }
-    - { resource: '@PrestaCMSFAQBundle/Resources/config/config_navigation.yml'}
-    - { resource: '@PrestaCMSContactBundle/Resources/config/config_navigation.yml'}
     - { resource: '@SonataTranslationBundle/Resources/config/config.yml'}
 
 parameters:
@@ -21,10 +19,7 @@ assetic:
         - SonataAdminBundle
         - PrestaSonataAdminExtendedBundle
         - ApplicationSonataAdminBundle
-        - ApplicationPrestaCMSCoreBundle
-        - PrestaCMSCoreBundle
         - PrestaComposerPublicBundle
-        - PrestaCMSThemeBasicBundle
 
 sonata_admin:
     title:      ' '

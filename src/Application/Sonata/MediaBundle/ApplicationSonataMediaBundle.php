@@ -21,6 +21,6 @@ class ApplicationSonataMediaBundle extends Bundle
      */
     public function getParent()
     {
-        return 'CoopTilleulsCKEditorSonataMediaBundle';
+        return 'SonataMediaBundle';
     }
 }

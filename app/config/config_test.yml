@@ -14,13 +14,3 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
-
-presta_cms_core:
-    websites:
-        symfony-prestacms:
-            path: /website/symfony-prestacms
-            hosts:
-                dev:
-                    en:
-                        locale: en
-                        host: localhost

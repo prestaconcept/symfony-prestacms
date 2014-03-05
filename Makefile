@@ -18,8 +18,6 @@ configure:
 install:
 	app/console doctrine:database:create --env=$(ENV)
 	app/console doctrine:schema:create --env=$(ENV)
-	app/console doctrine:phpcr:repository:init --env=$(ENV)
-	app/console doctrine:phpcr:fixtures:load --no-interaction --env=$(ENV)
 	app/console doctrine:fixture:load --no-interaction --env=$(ENV)
 
 update:
@@ -69,12 +67,8 @@ cc:
 	rm -rf app/cache/*
 
 refresh:
-	app/console doctrine:phpcr:fixtures:load --no-interaction
 	app/console doctrine:fixture:load --no-interaction
 	app/console cache:clear --env=prod
-
-refresh-content:
-	app/console doctrine:phpcr:fixtures:load --no-interaction
 
 refresh-orm:
 	app/console doctrine:fixtures:load --no-interaction
