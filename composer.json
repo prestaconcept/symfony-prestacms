@@ -36,11 +36,7 @@
         "sonata-project/doctrine-orm-admin-bundle":"2.2.*",
 
         "presta/presta-cms": "1.0.*",
-        "presta/sonata-navigation-bundle": "1.0.*",
-        "presta/cms-sitemap-bridge-bundle": "1.0.*",
-        "presta/sonata-admin-extended-bundle": "1.0.*",
-        "presta/cms-ckeditor-bundle": "1.0.*",
-        "presta/cms-faq-bundle": "1.0.*"
+        "presta/cms-sandbox-bundle": "1.0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*@stable",

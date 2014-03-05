@@ -8,7 +8,7 @@ imports:
     #- { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_dashboard.yml' }
     - { resource: '@PrestaCMSFAQBundle/Resources/config/config_navigation.yml'}
     - { resource: '@PrestaCMSContactBundle/Resources/config/config_navigation.yml'}
-    - { resource: '@PrestaSonataGedmoDoctrineExtensionsBundle/Resources/config/config.yml'}
+    - { resource: '@SonataTranslationBundle/Resources/config/config.yml'}
 
 parameters:
     locale:  en

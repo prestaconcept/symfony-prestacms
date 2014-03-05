@@ -37,15 +37,16 @@ security:
 
         # defaut login area for standard users
         main:
-            pattern:      .*
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                failure_path:   null
-            logout:       true
-            anonymous:    true
+           pattern:      .*
+           form_login:
+               provider:       fos_userbundle
+               login_path:     /user/login
+               use_forward:    false
+               check_path:     /user/login_check
+               failure_path:   null
+           logout:
+               path: /user/logout
+           anonymous:    true
 
 
     # ...
