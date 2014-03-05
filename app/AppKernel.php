@@ -27,6 +27,8 @@ class AppKernel extends Kernel
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Sonata\TranslationBundle\SonataTranslationBundle(),
 
             new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
@@ -51,7 +53,6 @@ class AppKernel extends Kernel
             //PrestaAdmin
             new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle(),
             new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle(),
-            new Presta\SonataGedmoDoctrineExtensionsBundle\PrestaSonataGedmoDoctrineExtensionsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
             new Presta\ComposerPublicBundle\PrestaComposerPublicBundle(),
@@ -65,6 +66,9 @@ class AppKernel extends Kernel
             new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Presta\CMSCKEditorBundle\PrestaCMSCKEditorBundle(),
             new Presta\CMSFAQBundle\PrestaCMSFAQBundle(),
+            new Presta\CMSSocialBundle\PrestaCMSSocialBundle(),
+            new Presta\CMSUserBundle\PrestaCMSUserBundle('ApplicationSonataUserBundle'),
+            new Presta\CMSSandboxBundle\PrestaCMSSandboxBundle(),
 
             //PrestaCMS-Sandbox
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),

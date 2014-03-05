@@ -1,3 +1,6 @@
+presta_cms_sandbox:
+    resource: "@PrestaCMSSandboxBundle/Resources/config/routing.xml"
+    prefix:   /
 
 presta_sonata_admin_extended:
     resource: "@PrestaSonataAdminExtendedBundle/Resources/config/routing.yml"
@@ -14,6 +17,10 @@ PrestaSitemapBundle:
 presta_cms_contact:
     resource: "@PrestaCMSContactBundle/Resources/config/routing.xml"
     prefix:   /
+
+prestacms_user:
+    resource: "@PrestaCMSUserBundle/Resources/config/routing.xml"
+    prefix: /user
 
 tree:
     resource: "@SonataDoctrinePHPCRAdminBundle/Resources/config/routing/tree.xml"
