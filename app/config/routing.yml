@@ -9,3 +9,11 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
+
+# Redirect if we have nothing in the front
+sonata_admin_only:
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /admin
+        permanent: true
