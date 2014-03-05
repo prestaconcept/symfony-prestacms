@@ -1,0 +1,147 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# load file to override some Vagrantfile parameters :-)
+vgt_conf = "#{__FILE__}.vars"
+if File.exist?(vgt_conf)
+  eval File.read(vgt_conf)
+end
+
+# CAN OVERRIDE THIS VARIABLE
+#
+# default values if not defined
+vagrant_box_url ||= "http://vagrantbox.local/centos6-x64-minimal-vbox42.box"
+
+vagrant_vagrant_base_dir ||= "./"
+vagrant_vagrant_custom_dir ||= vagrant_vagrant_base_dir
+
+vagrant_local_project_dir ||= "~/Workspace"
+vagrant_vm_project_dir ||= "/var/www/Workspace"
+
+# VirtualBox config
+vbox_memory ||= "1024"
+vbox_cpu ||= "1"
+vbox_name ||= ""
+
+
+# CANNOT OVERRIDE THIS VARIABLES
+# shell paths config
+vagrant_local_shell_dir = vagrant_vagrant_base_dir + "shell/"
+vagrant_vm_shell_base_conf_dir = "/vagrant/" + vagrant_vagrant_base_dir + "shell/conf/"
+vagrant_vm_shell_custom_conf_dir = vagrant_vm_project_dir + "/" + vagrant_vagrant_custom_dir + "shell/conf/"
+# puppet paths config
+vagrant_local_puppet_manifests_dir = vagrant_vagrant_base_dir + "puppet/manifests/"
+vagrant_local_puppet_module_dir = vagrant_vagrant_base_dir + "puppet/modules/"
+vagrant_local_puppet_static_files_dir = vagrant_vagrant_base_dir + "puppet/files/"
+vagrant_vm_puppet_custom_dir = vagrant_vm_project_dir + "/" + vagrant_vagrant_custom_dir + "puppet/"
+vagrant_vm_puppet_base_dir = "/vagrant/" + vagrant_vagrant_base_dir + "puppet/"
+
+##########
+
+if defined?(DEBUG_VARS) && DEBUG_VARS == true
+# debug print
+  print "\n== virtualbox config ==\n"
+  print "\tvbox_name: #{vbox_name}\n"
+  print "\tvbox_memory: #{vbox_memory}\n"
+  print "\tvbox_cpu:#{vbox_cpu}\n"
+
+  print "\n== Vagrant : box config ==\n"
+  print "\tvagrant_vagrant_base_dir=#{vagrant_vagrant_base_dir}\n"
+  print "\tvagrant_vagrant_custom_dir=#{vagrant_vagrant_custom_dir}\n"
+  print "\tvagrant_box_url=#{vagrant_box_url}\n"
+  print "\tvagrant_local_project_dir=#{vagrant_local_project_dir}\n"
+  print "\tvagrant_vm_project_dir=#{vagrant_vm_project_dir}\n"
+
+  print "\n== Vagrant: puppet provisioning config ==\n"
+  print "\tvagrant_local_puppet_module_dir=#{vagrant_local_puppet_module_dir}\n"
+  print "\tvagrant_local_puppet_manifests_dir=#{vagrant_local_puppet_manifests_dir}\n"
+  print "\tvagrant_local_puppet_static_files_dir=#{vagrant_local_puppet_static_files_dir}\n"
+  print "\tvagrant_vm_puppet_base_dir=#{vagrant_vm_puppet_base_dir}\n"
+  print "\tvagrant_vm_puppet_custom_dir=#{vagrant_vm_puppet_custom_dir}\n"
+
+  print "\n== Vagrant: shell provisioning config ==\n"
+  print "\tvagrant_local_shell_dir=#{vagrant_local_shell_dir}\n"
+  print "\tvagrant_vm_shell_base_conf_dir=#{vagrant_vm_shell_base_conf_dir}\n"
+  print "\tvagrant_vm_shell_custom_conf_dir=#{vagrant_vm_shell_custom_conf_dir}\n"
+end
+
+############
+
+def Kernel.is_windows?
+    # Detect if we are running on Windows
+    processor, platform, *rest = RUBY_PLATFORM.split("-")
+    platform == 'mingw32'
+end
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "VagrantC6x64"
+  config.vm.hostname = "centos6vagrant.lan"
+
+  # The url from where the 'config.vm.box' box will be fetched if it
+  # doesn't already exist on the user's system.
+  config.vm.box_url = vagrant_box_url
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network :private_network, ip: "192.168.33.10"
+
+  # If true, then any SSH connections made will enable agent forwarding.
+  # Default value: false
+  # config.ssh.forward_agent = true
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  has_nfs=!Kernel.is_windows?
+  config.vm.synced_folder vagrant_local_project_dir , vagrant_vm_project_dir, :nfs => has_nfs
+  config.vm.synced_folder vagrant_local_puppet_static_files_dir, "/etc/puppet/files"
+
+  #
+  config.vm.provider :virtualbox do |vb|
+    # rename VM label on VirtualBox if defined
+    if defined?(vbox_name) && vbox_name != ''
+      vb.name = vbox_name
+    end
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off" ]
+    vb.customize ["modifyvm", :id, "--memory", vbox_memory ]
+    vb.customize ["modifyvm", :id, "--cpus", vbox_cpu]
+    vb.customize ["setextradata", :id, "--VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+   end
+
+  # OS upgrade on boot
+  config.vm.provision :shell do |shell|
+    shell.path = vagrant_local_shell_dir + "os-update.sh"
+    shell.args = vagrant_vm_shell_base_conf_dir + "os-update-exclude.conf"
+  end
+
+  # auto-install puppet
+  config.vm.provision :shell do |shell|
+    shell.path = vagrant_local_shell_dir + "puppet-installer.sh"
+    # puppet fixed release
+    shell.args = "3.3"
+  end
+  # puppet : puppet's modules auto-install
+  config.vm.provision :shell do |shell|
+    shell.path = vagrant_local_shell_dir + "puppet-mod-installer.sh"
+    shell.args = vagrant_vm_shell_custom_conf_dir  + "puppet-mod-installer.conf"
+  end
+
+  # varnish - repo install
+  config.vm.provision :shell do |shell|
+    shell.path = vagrant_local_shell_dir + "varnish-repo.sh"
+  end
+
+  config.vm.provision :puppet do |puppet|
+     puppet.manifests_path = vagrant_local_puppet_manifests_dir
+     puppet.manifest_file  = "init.pp"
+     puppet.module_path = vagrant_local_puppet_module_dir
+     puppet.options = [ "--verbose", "--hiera_config " + vagrant_vm_puppet_custom_dir + "hiera.yaml", "--fileserverconfig=" + vagrant_vm_puppet_base_dir + "fileserver.conf", "--parser future" ]
+     puppet.facter = { 'fqdn' => config.vm.hostname }
+   end
+
+end

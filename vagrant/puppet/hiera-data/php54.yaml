@@ -1,0 +1,32 @@
+---
+php:
+    version: '54'
+    modules:
+        php:
+          - intl
+          - gettext
+          - gd
+          - mcrypt
+          - mysql
+          - mysqli
+          - imap
+          - curl
+          - bcmath
+          - pdo_mysql
+          - xsl
+          - openssl
+          - soap
+          - zip
+          - mbstring
+          - pgsql
+          - pdo_sqlite
+          - pecl-xdebug
+          - pecl-APC
+          - pecl-http1
+          - pecl-imagick
+          - pecl-memcached
+
+        pear: { }
+# compile extension PECL outside of our RPM Repo
+        pecl: { }
+

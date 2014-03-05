@@ -16,3 +16,7 @@
 .idea/*
 
 composer.lock
+
+/vagrant/puppet/modules/
+/vagrant/.vagrant/
+/vagrant/base/

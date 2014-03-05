@@ -19,10 +19,10 @@ presta_cms_core:
                 dev:
                     en:
                         locale: en
-                        host: www.dev-symfony-prestacms.com
+                        host: www.symfony-prestacms.com.dev
                     fr:
                         locale: fr
-                        host: www.dev-symfony-prestacms.fr
+                        host: www.symfony-prestacms.fr.dev
                 prod:
                     en:
                         locale: en

@@ -86,4 +86,38 @@ class AppKernel extends Kernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
+
+    /**
+     * Vagrant optimisation: set cache directory in the vm
+     *
+     * @return string
+     */
+    public function getCacheDir()
+    {
+        $envParameters = $this->getEnvParameters();
+
+        if ($this->getEnvironment() === 'dev'
+            || (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1")) {
+            return '/dev/shm/vagrant/cache/' .  $this->environment;
+        }
+
+        return parent::getCacheDir();
+    }
+
+    /**
+     *  Vagrant optimisation: set log directory in the vm
+     *
+     * @return string
+     */
+    public function getLogDir()
+    {
+        $envParameters = $this->getEnvParameters();
+
+        if ($this->getEnvironment() === 'dev'
+            || (isset($envParameters['vagrant']) && $envParameters['vagrant'] === "1")) {
+            return '/dev/shm/vagrant/logs';
+        }
+
+        return parent::getLogDir();
+    }
 }

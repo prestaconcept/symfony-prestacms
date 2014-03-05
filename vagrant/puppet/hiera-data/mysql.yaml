@@ -1,0 +1,9 @@
+---
+mysql:
+    rpm_server: 'MySQL-server'
+    rpm_client: 'MySQL-client'
+    root_password: 'vagrant'
+    # my.cnf override
+    ini:
+      mysqld:
+        bind_address: 0.0.0.0

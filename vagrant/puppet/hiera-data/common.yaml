@@ -1,0 +1,81 @@
+---
+# add a additional RPM to your VM :-)
+server:
+    packages:
+#      - symfony1-multi
+      - zip
+      - nodejs
+
+nodejs:
+  npm:
+    # add your needed NPM modules
+    packages:
+      - zombie
+
+php:
+  modules:
+    # add your needed PEAR modules
+    pear:
+      - Net_GeoIP
+
+mysql:
+    ini:
+      mysqld:
+        max_connections: 300
+        max_allowed_packet: 32M
+
+      mysqldump:
+        max_allowed_packet: 32M
+
+    databases:
+        thats_a_test:
+            grant:
+                - ALL
+            name: dev
+            host: %
+            user: dev
+            password: dev
+            sql_file: ''
+
+        thats_a_test2:
+            grant:
+                - ALL
+            name: dev_test
+            host: %
+            user: dev
+            password: dev
+            sql_file: ''
+
+varnish:
+# do you want varnish ?
+#  install: true
+  install: false
+
+# port on which varnish listen - (default : 6081)
+  port: 6081
+
+# required: port on which your webserver is listening
+  backendport: 80
+
+apache:
+# port on which all vhosts will be available (default:80)
+    listen: 80
+    vhosts:
+        a_first_awesome_vhost:
+            servername: symfony-prestacms.com.dev
+            # not necessary, managed with "listen" key
+#            port: 80
+            serveraliases:
+                - symfony-prestacms.fr.dev
+                - www.symfony-prestacms.com.dev
+                - www.symfony-prestacms.fr.dev
+            docroot: /var/www/Workspace/web
+            setenv:
+                - 'APP_ENV dev'
+                - 'SYMFONY__VAGRANT 1'
+            override:
+                - All
+            # required in each vhost
+            add_listen: false
+            # required in each vhost
+            ip: *
