@@ -53,7 +53,6 @@ class AppKernel extends Kernel
             //PrestaAdmin
             new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle(),
             new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle(),
-            new Presta\SonataGedmoDoctrineExtensionsBundle\PrestaSonataGedmoDoctrineExtensionsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
             new Presta\ComposerPublicBundle\PrestaComposerPublicBundle(),
