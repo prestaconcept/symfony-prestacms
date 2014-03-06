@@ -2,7 +2,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     presta-vm-mysql56.local
     database_port:     ~
-    database_name:     PIC_profideo-espri
+    database_name:     PIC_symfony-prestacms
     database_user:     jenkins
     database_password: jenkins
 
