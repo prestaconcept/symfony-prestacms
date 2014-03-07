@@ -16,66 +16,35 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             //Sonata
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\TranslationBundle\SonataTranslationBundle(),
-
-            new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-
-            new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             //Utils
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-
-            // Doctrine PHPCR
-            new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
-
-            // CMF bundles
-            new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
-            new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
-            new Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle(),
-            new Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle(),
-            new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle(),
-            new Symfony\Cmf\Bundle\BlockBundle\CmfBlockBundle(),
-
-            //PrestaAdmin
-            new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle(),
-            new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
-            new Presta\ComposerPublicBundle\PrestaComposerPublicBundle(),
-
-            //PrestaCMS
-            new Presta\CMSCoreBundle\PrestaCMSCoreBundle(),
-            new Presta\CMSMediaBundle\PrestaCMSMediaBundle(),
-            new Presta\CMSThemeBasicBundle\PrestaCMSThemeBasicBundle(),
-            new Presta\CMSContactBundle\PrestaCMSContactBundle(),
-            new Presta\CMSSitemapBridgeBundle\PrestaCMSSitemapBridgeBundle(),
             new Presta\SitemapBundle\PrestaSitemapBundle(),
-            new Presta\CMSCKEditorBundle\PrestaCMSCKEditorBundle(),
-            new Presta\CMSFAQBundle\PrestaCMSFAQBundle(),
-            new Presta\CMSSocialBundle\PrestaCMSSocialBundle(),
-            new Presta\CMSUserBundle\PrestaCMSUserBundle('ApplicationSonataUserBundle'),
-            new Presta\CMSSandboxBundle\PrestaCMSSandboxBundle(),
-
-            //PrestaCMS-Sandbox
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            new Application\Presta\CMSCoreBundle\ApplicationPrestaCMSCoreBundle(),
         );
+
+        //PrestaAdmin required bundles
+        $this->registerPrestaAdminBundles($bundles);
+
+        //PrestaCMS required bundles
+        $this->registerPrestaCMSBundles($bundles);
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
@@ -89,6 +58,58 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+    }
+
+    /**
+     * Register all bundles used for prestaconcept administration
+     *
+     * @param array $bundles
+     */
+    protected function registerPrestaAdminBundles(array &$bundles)
+    {
+        $bundles[] = new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle();
+        $bundles[] = new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle();
+
+        $bundles[] = new Application\Sonata\UserBundle\ApplicationSonataUserBundle();
+        $bundles[] = new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle();
+        $bundles[] = new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle();
+
+        $bundles[] = new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle();
+
+        $bundles[] = new Presta\ComposerPublicBundle\PrestaComposerPublicBundle();
+    }
+
+    /**
+     * Register all bundles required for the prestaCMS
+     *
+     * @param array $bundles
+     */
+    protected function registerPrestaCmsBundles(array &$bundles)
+    {
+        //PrestaCMS
+        $bundles[] = new Presta\CMSCoreBundle\PrestaCMSCoreBundle();
+        $bundles[] = new Presta\CMSMediaBundle\PrestaCMSMediaBundle();
+        $bundles[] = new Presta\CMSThemeBasicBundle\PrestaCMSThemeBasicBundle();
+        $bundles[] = new Presta\CMSContactBundle\PrestaCMSContactBundle();
+        $bundles[] = new Presta\CMSSitemapBridgeBundle\PrestaCMSSitemapBridgeBundle();
+        $bundles[] = new Presta\CMSCKEditorBundle\PrestaCMSCKEditorBundle();
+        $bundles[] = new Presta\CMSFAQBundle\PrestaCMSFAQBundle();
+        $bundles[] = new Presta\CMSSocialBundle\PrestaCMSSocialBundle();
+        $bundles[] = new Presta\CMSUserBundle\PrestaCMSUserBundle('ApplicationSonataUserBundle');
+        $bundles[] = new Presta\CMSSandboxBundle\PrestaCMSSandboxBundle();
+        $bundles[] = new Application\Presta\CMSCoreBundle\ApplicationPrestaCMSCoreBundle();
+
+        // Doctrine PHPCR
+        $bundles[] = new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle();
+        $bundles[] = new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle();
+
+        // CMF bundles
+        $bundles[] = new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle();
+        $bundles[] = new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle();
+        $bundles[] = new Symfony\Cmf\Bundle\MenuBundle\CmfMenuBundle();
+        $bundles[] = new Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle();
+        $bundles[] = new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle();
+        $bundles[] = new Symfony\Cmf\Bundle\BlockBundle\CmfBlockBundle();
     }
 
     /**

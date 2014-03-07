@@ -21,6 +21,13 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
 
+        /* PrestaAdmin dependancies */
+        "presta/sonata-admin-extended-bundle": "1.*",
+        "sonata-project/doctrine-orm-admin-bundle":"2.2.*",
+
+        /* PrestaCMS dependancies */
+        "presta/presta-cms": "1.0.*",
+        "presta/cms-sandbox-bundle": "1.0.*",
         "doctrine/phpcr-bundle": "1.0.0",
         "doctrine/phpcr-odm": "1.0.0",
         "symfony-cmf/core-bundle": "1.0.0",
@@ -29,18 +36,10 @@
         "symfony-cmf/block-bundle": "1.0.0",
         "symfony-cmf/routing-bundle": "1.1.0",
         "symfony-cmf/tree-browser-bundle": "1.0.*",
-
-        "jackalope/jackalope-doctrine-dbal": "1.0.0",
-
-        "presta/sonata-admin-extended-bundle": "1.*",
-        "sonata-project/doctrine-orm-admin-bundle":"2.2.*",
-
-        "presta/presta-cms": "1.0.*",
-        "presta/cms-sandbox-bundle": "1.0.*"
+        "jackalope/jackalope-doctrine-dbal": "1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*@stable",
-        "symfony-cmf/testing": "1.0.*",
         "behat/behat": "~2.4@stable",
         "behat/symfony2-extension": "~1.0@stable",
         "behat/mink-extension": "~1.1@stable",
@@ -49,7 +48,10 @@
         "phpmd/phpmd" : "1.4.*",
         "squizlabs/php_codesniffer": "1.*",
         "sebastian/phpcpd": "2.0.*",
-        "presta/meta-ci": "1.0.*@dev"
+        "presta/meta-ci": "1.0.*@dev",
+
+        /* PrestaCMS dependancies */
+        "symfony-cmf/testing": "1.0.*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -1,0 +1,31 @@
+# cmf configuration
+doctrine_phpcr:
+    # configure the PHPCR session
+    session:
+        backend: %phpcr_backend%
+        workspace: %phpcr_workspace%
+        username: %phpcr_user%
+        password: %phpcr_pass%
+    # enable the ODM layer
+    odm:
+        auto_generate_proxy_classes: %kernel.debug%
+        locales:
+            en:
+                - fr
+            fr:
+                - en
+        #auto_mapping: true
+        #auto_mapping is not working due to a MappingException in Sonata Media
+        #Invalid mapping file 'Sonata.MediaBundle.Document.BaseGallery.phpcr.xml' for class 'Sonata\MediaBundle\Document\BaseGallery'
+        document_managers:
+            default:
+                mappings:
+#                    ApplicationPrestaCMSCoreBundle: ~
+                    PrestaCMSCoreBundle: ~
+                    CmfRoutingBundle: ~
+                    CmfTreeBrowserBundle: ~
+                    SonataDoctrinePHPCRAdminBundle: ~
+                    CmfBlockBundle: ~
+                    CmfContentBundle: ~
+                    CmfMenuBundle: ~
+                    CmfCoreBundle: ~
