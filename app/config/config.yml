@@ -1,23 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: bundles/sonata_admin.yml }
-    - { resource: bundles/sonata_block.yml }
-    - { resource: bundles/sonata_media.yml }
-    - { resource: bundles/sonata_translation.yml }
-    - { resource: bundles/presta_sonata_navigation.yml }
-    - { resource: bundles/presta_sonata_admin_extended.yml }
-    - { resource: '@PrestaCMSCoreBundle/Resources/config/roles.yml' }
-    - { resource: '@PrestaCMSCoreBundle/Resources/config/config.yml' }
-    - { resource: '@PrestaCMSUserBundle/Resources/config/config.yml' }
-    - { resource: '@PrestaCMSCKEditorBundle/Resources/config/config.yml' }
-    - { resource: '@PrestaCMSSandboxBundle/Resources/config/config.yml' }
-    - { resource: bundles/presta_cms_core.yml }
-    - { resource: bundles/presta_cms_contact.yml }
-    - { resource: bundles/presta_cms_social.yml }
-    - { resource: bundles/presta_cms_sitemap_bridge.yml }
-    - { resource: phpcr_doctrine_dbal.yml }
-    - { resource: 'bundles/doctrine_phpcr.yml' }
+    - { resource: includes/presta_admin.yml }
+    - { resource: includes/presta_cms.yml }
 
 framework:
     #esi:             ~

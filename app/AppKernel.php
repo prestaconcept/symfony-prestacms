@@ -19,32 +19,14 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
-            //Sonata
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new Sonata\SeoBundle\SonataSeoBundle(),
-            new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
-            new Sonata\TranslationBundle\SonataTranslationBundle(),
-            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-
-            //Utils
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Presta\SitemapBundle\PrestaSitemapBundle(),
         );
 
-        //PrestaAdmin required bundles
-        $this->registerPrestaAdminBundles($bundles);
-
-        //PrestaCMS required bundles
+        $this->registerAdminBundles($bundles);
         $this->registerPrestaCMSBundles($bundles);
+        $this->registerApplicationBundles($bundles);
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
@@ -61,12 +43,39 @@ class AppKernel extends Kernel
     }
 
     /**
-     * Register all bundles used for prestaconcept administration
+     * Register current application bundle
      *
      * @param array $bundles
      */
-    protected function registerPrestaAdminBundles(array &$bundles)
+    protected function registerApplicationBundles(array &$bundles)
     {
+        // add your bundle here
+    }
+
+    /**
+     * Register bundles used for prestaconcept administration
+     *
+     * @param array $bundles
+     */
+    protected function registerAdminBundles(array &$bundles)
+    {
+        // FOS
+        $bundles[] = new FOS\UserBundle\FOSUserBundle();
+
+        // Sonata
+        $bundles[] = new Sonata\BlockBundle\SonataBlockBundle();
+        $bundles[] = new Sonata\jQueryBundle\SonatajQueryBundle();
+        $bundles[] = new Sonata\AdminBundle\SonataAdminBundle();
+        $bundles[] = new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle();
+        $bundles[] = new Sonata\SeoBundle\SonataSeoBundle();
+        $bundles[] = new Sonata\MediaBundle\SonataMediaBundle();
+        $bundles[] = new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle();
+        $bundles[] = new Sonata\CoreBundle\SonataCoreBundle();
+        $bundles[] = new Sonata\IntlBundle\SonataIntlBundle();
+        $bundles[] = new Sonata\TranslationBundle\SonataTranslationBundle();
+        $bundles[] = new Sonata\UserBundle\SonataUserBundle('FOSUserBundle');
+
+        // Presta
         $bundles[] = new Presta\SonataAdminExtendedBundle\PrestaSonataAdminExtendedBundle();
         $bundles[] = new Presta\SonataNavigationBundle\PrestaSonataNavigationBundle();
 
@@ -75,18 +84,17 @@ class AppKernel extends Kernel
         $bundles[] = new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle();
 
         $bundles[] = new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle();
-
         $bundles[] = new Presta\ComposerPublicBundle\PrestaComposerPublicBundle();
     }
 
     /**
-     * Register all bundles required for the prestaCMS
+     * Register bundles required for the prestaCMS
      *
      * @param array $bundles
      */
     protected function registerPrestaCmsBundles(array &$bundles)
     {
-        //PrestaCMS
+        // PrestaCMS
         $bundles[] = new Presta\CMSCoreBundle\PrestaCMSCoreBundle();
         $bundles[] = new Presta\CMSMediaBundle\PrestaCMSMediaBundle();
         $bundles[] = new Presta\CMSThemeBasicBundle\PrestaCMSThemeBasicBundle();
