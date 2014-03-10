@@ -3,7 +3,7 @@ Remove PrestaCMS
 
 If you want to enjoy presta admin bundle without CMS, follow the next instructions:
 
- * **composer.json**: remove CMS dependencies
+ * **composer.json**: remove CMS, CMF and PHPCR dependencies in both require and require-dev
  * **app/AppKernel**: unset registerPrestaCMSBundles method call
  * **Makefile** (install/refresh command): remove phpcr command
  * **app/autoload.php**: remove PHPCR DoctrineAnnotations registred file
@@ -15,7 +15,9 @@ If you want to enjoy presta admin bundle without CMS, follow the next instructio
  * **app/config_test.yml**: unset cms website configuration
  * **app/config/parameters.yml.dist**: unset cms social bundle parameters
 
- * behat:
+ * **app/config/bundles/presta_sonata_admin_extended.yml**: remove all CMS configuration in assetic.bundles
+
+ * **behat**:
     * remove cms features
     * remove src/Context except AdminContext and FeatureContext
 
