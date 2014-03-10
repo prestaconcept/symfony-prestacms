@@ -3,7 +3,7 @@ Remove PrestaCMS
 
 If you want to enjoy presta admin bundle without CMS, follow the next instructions:
 
- * **composer.json**: remove CMS dependancies
+ * **composer.json**: remove CMS dependencies
  * **app/AppKernel**: remove CMS bundles registration
  * **Makefile** (install/refresh command): remove phpcr command
  * **app/autoload.php**: remove PHPCR DoctrineAnnotations registred file
