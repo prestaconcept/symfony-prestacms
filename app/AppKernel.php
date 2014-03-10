@@ -16,12 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Presta\SitemapBundle\PrestaSitemapBundle(),
         );
 
         $this->registerAdminBundles($bundles);
@@ -85,6 +79,12 @@ class AppKernel extends Kernel
 
         $bundles[] = new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle();
         $bundles[] = new Presta\ComposerPublicBundle\PrestaComposerPublicBundle();
+
+        // Utils
+        $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+        $bundles[] = new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle();
+        $bundles[] = new FOS\JsRoutingBundle\FOSJsRoutingBundle();
+        $bundles[] = new Knp\Bundle\MenuBundle\KnpMenuBundle();
     }
 
     /**
@@ -99,6 +99,7 @@ class AppKernel extends Kernel
         $bundles[] = new Presta\CMSMediaBundle\PrestaCMSMediaBundle();
         $bundles[] = new Presta\CMSThemeBasicBundle\PrestaCMSThemeBasicBundle();
         $bundles[] = new Presta\CMSContactBundle\PrestaCMSContactBundle();
+        $bundles[] = new Presta\SitemapBundle\PrestaSitemapBundle();
         $bundles[] = new Presta\CMSSitemapBridgeBundle\PrestaCMSSitemapBridgeBundle();
         $bundles[] = new Presta\CMSCKEditorBundle\PrestaCMSCKEditorBundle();
         $bundles[] = new Presta\CMSFAQBundle\PrestaCMSFAQBundle();
