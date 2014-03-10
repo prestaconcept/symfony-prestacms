@@ -9,7 +9,7 @@ If you want to enjoy presta admin bundle without CMS, follow the next instructio
  * **app/autoload.php**: remove PHPCR DoctrineAnnotations registred file
 
  * **app/config/config.yml**:
-    * remove imports for CMS file
+    * remove imports for presta_admin and presta_cms file
     * remove *doctrine:orm:entity_managers:default:mappings* CMS bundles list
  * **app/config/routing.yml**: remove CMS bundles routing import
  * **app/config/bundles/presta_sonata_admin_extended.yml**: remove CMS imports and parameters
