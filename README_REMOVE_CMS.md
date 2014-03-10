@@ -4,19 +4,19 @@ Remove PrestaCMS
 If you want to enjoy presta admin bundle without CMS, follow the next instructions:
 
  * **composer.json**: remove CMS dependencies
- * **app/AppKernel**: remove CMS bundles registration
+ * **app/AppKernel**: unset registerPrestaCMSBundles method call
  * **Makefile** (install/refresh command): remove phpcr command
  * **app/autoload.php**: remove PHPCR DoctrineAnnotations registred file
 
  * **app/config/config.yml**:
-    * remove imports for presta_admin and presta_cms file
-    * remove *doctrine:orm:entity_managers:default:mappings* CMS bundles list
- * **app/config/routing.yml**: remove CMS bundles routing import
- * **app/config/bundles/presta_sonata_admin_extended.yml**: remove CMS imports and parameters
- * **app/config/bundles/presta_sonata_navigation.yml**: remove CMS menu entries
- * **app/config/bundles/sonata_block.yml**: remove cms block
- * **app/config_test.yml**: remove cms website configuration
- * **app/config/parameters.yml.dist**: remove cms social bundle parameters
+    * unset imports for presta_cms file
+    * unset *doctrine:orm:entity_managers:default:mappings* CMS bundles list
+ * **app/config/routing.yml**: unset CMS bundles routing import
+ * **app/config/bundles/presta_sonata_admin_extended.yml**: unset CMS imports and parameters
+ * **app/config/bundles/presta_sonata_navigation.yml**: unset CMS menu entries
+ * **app/config/bundles/sonata_block.yml**: unset cms block
+ * **app/config_test.yml**: unset cms website configuration
+ * **app/config/parameters.yml.dist**: unset cms social bundle parameters
 
  * behat:
     * remove cms features
