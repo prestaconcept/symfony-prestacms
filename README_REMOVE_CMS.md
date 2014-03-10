@@ -12,9 +12,6 @@ If you want to enjoy presta admin bundle without CMS, follow the next instructio
     * unset imports for presta_cms file
     * unset *doctrine:orm:entity_managers:default:mappings* CMS bundles list
  * **app/config/routing.yml**: unset CMS bundles routing import
- * **app/config/bundles/presta_sonata_admin_extended.yml**: unset CMS imports and parameters
- * **app/config/bundles/presta_sonata_navigation.yml**: unset CMS menu entries
- * **app/config/bundles/sonata_block.yml**: unset cms block
  * **app/config_test.yml**: unset cms website configuration
  * **app/config/parameters.yml.dist**: unset cms social bundle parameters
 

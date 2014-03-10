@@ -1,9 +1,13 @@
 imports:
     - { resource: '@PrestaCMSCoreBundle/Resources/config/roles.yml' }
     - { resource: '@PrestaCMSCoreBundle/Resources/config/config.yml' }
+    - { resource: '@PrestaCMSCoreBundle/Resources/config/config_navigation.yml' }
     - { resource: '@PrestaCMSUserBundle/Resources/config/config.yml' }
+    - { resource: '@PrestaCMSSocialBundle/Resources/config/config.yml' }
     - { resource: '@PrestaCMSCKEditorBundle/Resources/config/config.yml' }
     - { resource: '@PrestaCMSSandboxBundle/Resources/config/config.yml' }
+    - { resource: '@PrestaCMSFAQBundle/Resources/config/config_navigation.yml'}
+    - { resource: '@PrestaCMSContactBundle/Resources/config/config_navigation.yml'}
     - { resource: '../bundles/presta_cms_core.yml' }
     - { resource: '../bundles/presta_cms_contact.yml' }
     - { resource: '../bundles/presta_cms_social.yml' }

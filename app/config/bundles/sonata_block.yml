@@ -4,5 +4,3 @@ sonata_block:
         sonata.block.service.text:
         presta_sonata_admin_extended.block.dashboard.user:
         presta_sonata_admin_extended.block.dashboard.media:
-        presta_cms_social.block.twitter.latest_tweets:
-        presta_cms_user.block.user_info:
