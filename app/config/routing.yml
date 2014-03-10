@@ -1,17 +1,27 @@
-presta_cms_sandbox:
-    resource: "@PrestaCMSSandboxBundle/Resources/config/routing.xml"
+PrestaSitemapBundle:
+    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
     prefix:   /
 
+# Presta Admin
 presta_sonata_admin_extended:
     resource: "@PrestaSonataAdminExtendedBundle/Resources/config/routing.yml"
     prefix:   /
 
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
+# PrestaCMS
 PrestaCMSCoreBundle:
     resource: "@PrestaCMSCoreBundle/Resources/config/routing.xml"
     prefix:   /admin/{_locale}/
 
-PrestaSitemapBundle:
-    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
+presta_cms_sandbox:
+    resource: "@PrestaCMSSandboxBundle/Resources/config/routing.xml"
     prefix:   /
 
 presta_cms_contact:
@@ -24,11 +34,3 @@ prestacms_user:
 
 tree:
     resource: "@SonataDoctrinePHPCRAdminBundle/Resources/config/routing/tree.xml"
-
-gallery:
-    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
-    prefix: /media/gallery
-
-media:
-    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
-    prefix: /media
