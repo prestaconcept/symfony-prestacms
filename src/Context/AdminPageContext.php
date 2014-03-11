@@ -27,7 +27,9 @@ class AdminPageContext extends BehatContext
     public function iShouldSeeTheWebsiteSelectionAndALinkWithSelectedLocale($arg1, $arg2)
     {
         $this->getMainContext()->assertElementContainsText("#website-selector", $arg1);
-        $this->getMainContext()->assertElementOnPage("#website-selector div:contains($arg1) ul li.locale_$arg2.active");
+        $this->getMainContext()->assertElementOnPage(
+            "#website-selector option[value='/website/$arg1&locale=$arg2']:selected"
+        );
     }
 
     /**
