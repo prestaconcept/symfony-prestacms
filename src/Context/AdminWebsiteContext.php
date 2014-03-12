@@ -47,7 +47,7 @@ class AdminWebsiteContext extends BehatContext
      */
     public function iShouldSeeALinkWithSelectedLocale($arg1)
     {
-        $this->getMainContext()->assertElementContainsText("ul li.locale.active", $arg1);
+        $this->getMainContext()->assertElementOnPage('.locale_switcher a.active img[src*="'.$arg1.'"]');
     }
 
     /**
@@ -55,7 +55,7 @@ class AdminWebsiteContext extends BehatContext
      */
     public function iShouldSeeTheSymfonyPrestacmsWebsiteConfiguration()
     {
-        $this->getMainContext()->assertNumElements(6, ".sonata-ba-show table tr");
+        $this->getMainContext()->assertNumElements(3, ".sonata-ba-show table tr");
     }
 
     /**

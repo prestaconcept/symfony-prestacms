@@ -8,8 +8,16 @@ Scenario: An admin see a list of themes
     When I follow dashboard "Themes" link "List"
     Then I should see 1 themes
 
-Scenario: An admin view the details of a theme
+Scenario Outline: An admin view the details of a theme
     Given I am connected with "admin" and "admin" on "/admin/en/cms/theme"
     And I follow "creative"
     Then I should see the creative theme configuration
-    And I should see 2 locales
+    And I can choose between "<website>" websites in "<locale>" locale
+
+    Examples:
+        | website           | locale |
+        | symfony-prestacms | fr     |
+        | symfony-prestacms | en     |
+        | sandbox           | fr     |
+        | sandbox           | en     |
+

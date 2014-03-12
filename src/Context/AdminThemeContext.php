@@ -46,17 +46,19 @@ class AdminThemeContext extends BehatContext
 
         //Block content
         $this->getMainContext()->assertPageContainsText('About US');
-        $this->getMainContext()->assertPageContainsText('Useful Links');
+        $this->getMainContext()->assertPageContainsText('Latest Tweet');
         $this->getMainContext()->assertPageContainsText(
             'PrestaCMS is an open-source CMS base on Symfony2, CMF and Sonata.'
         );
     }
 
     /**
-     * @Given /^I should see (\d+) locales$/
+     * @Given /^I can choose between "([^"]*)" websites in "([^"]*)" locale$/
      */
-    public function iShouldSeeLocales($arg1)
+    public function iCanChooseBetweenWebsitesInLocale($website, $locale)
     {
-        $this->getMainContext()->assertNumElements($arg1, 'ul#website-locale li');
+        $this->getMainContext()->assertElementOnPage(
+            '#website-selector option[value="/website/'.$website.'&locale='.$locale.'"]'
+        );
     }
 }
