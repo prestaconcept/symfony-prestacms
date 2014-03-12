@@ -53,10 +53,12 @@ class AdminThemeContext extends BehatContext
     }
 
     /**
-     * @Given /^I can choose between (\d+) websites$/
+     * @Given /^I can choose between "([^"]*)" websites in "([^"]*)" locale$/
      */
-    public function iCanChooseBetweenWebsites($arg1)
+    public function iCanChooseBetweenWebsitesInLocale($website, $locale)
     {
-        $this->getMainContext()->assertNumElements($arg1, '#website-selector optgroup');
+        $this->getMainContext()->assertElementOnPage(
+            '#website-selector option[value="/website/'.$website.'&locale='.$locale.'"]'
+        );
     }
 }
