@@ -12,4 +12,4 @@ Scenario: An admin view the details of a theme
     Given I am connected with "admin" and "admin" on "/admin/en/cms/theme"
     And I follow "creative"
     Then I should see the creative theme configuration
-    And I should see 2 locales
+    And I can choose between 2 websites
