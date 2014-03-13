@@ -15,6 +15,9 @@ configure:
 	app/console assets:install web
 	app/console assetic:dump --env=prod
 
+drop-db:
+	app/console doctrine:database:drop --env=$(ENV) --force
+	
 install:
 	app/console doctrine:database:create --env=$(ENV)
 	app/console doctrine:schema:create --env=$(ENV)
@@ -22,8 +25,13 @@ install:
 	app/console doctrine:phpcr:fixtures:load --no-interaction --env=$(ENV)
 	app/console doctrine:fixture:load --no-interaction --env=$(ENV)
 
-update:
+update-dev:
 	app/console cache:clear --env=$(ENV)
+	install
+
+update-prod:
+	app/console cache:clear --env=$(ENV)
+	app/console doctrine:migrations:migrate
 
 
 ## Production
@@ -35,7 +43,7 @@ deploy-install: ENV = "prod"
 deploy-install: install
 
 deploy-update: ENV = "prod"
-deploy-update: update
+deploy-update: update-dev
 
 ## Test
 
