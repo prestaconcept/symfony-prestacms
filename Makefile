@@ -13,7 +13,7 @@ configure:
 	curl -s http://getcomposer.org/installer | php
 	php composer.phar install --prefer-dist
 	app/console assets:install web
-	app/console assetic:dump --env=prod
+	app/console assetic:dump --env=$(ENV)
 
 drop-db:
 	app/console doctrine:database:drop --env=$(ENV) --force
@@ -77,12 +77,12 @@ cc:
 	rm -rf app/cache/*
 
 refresh:
-	app/console doctrine:phpcr:fixtures:load --no-interaction
-	app/console doctrine:fixture:load --no-interaction
-	app/console cache:clear --env=prod
+	app/console doctrine:phpcr:fixtures:load --no-interaction --env=$(ENV)
+	app/console doctrine:fixture:load --no-interaction --env=$(ENV)
+	app/console cache:clear --env=$(ENV)
 
 refresh-content:
-	app/console doctrine:phpcr:fixtures:load --no-interaction
+	app/console doctrine:phpcr:fixtures:load --no-interaction --env=$(ENV)
 
 refresh-orm:
-	app/console doctrine:fixtures:load --no-interaction
+	app/console doctrine:fixtures:load --no-interaction --env=$(ENV)
