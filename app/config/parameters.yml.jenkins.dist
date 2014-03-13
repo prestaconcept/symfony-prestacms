@@ -19,3 +19,5 @@ parameters:
     twitter.consumer_secret: MyTwitterConsumerSecret
     twitter.access_token: MyTwitterAccessToken
     twitter.access_token_secret: MyTwitterAccessTokenSecret
+
+    presta_cms.environment: jenkins
