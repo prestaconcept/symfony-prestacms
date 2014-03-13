@@ -30,3 +30,7 @@ presta_cms_core:
                     fr:
                         locale: fr
                         host:  sandbox.prestacms.fr
+                jenkins:
+                    en:
+                        locale: en
+                        host: symfony-prestacms.loc
