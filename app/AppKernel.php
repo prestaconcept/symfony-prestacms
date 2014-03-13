@@ -82,6 +82,7 @@ class AppKernel extends Kernel
 
         // Utils
         $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+        $bundles[] = new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle();
         $bundles[] = new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle();
         $bundles[] = new FOS\JsRoutingBundle\FOSJsRoutingBundle();
         $bundles[] = new Knp\Bundle\MenuBundle\KnpMenuBundle();
