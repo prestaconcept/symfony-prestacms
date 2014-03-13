@@ -10,7 +10,8 @@ before_script:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - make configure
   - make install
-  #- export NODE_PATH="$(pwd)/node_modules"
+  - export NODE_PATH="$(pwd)/node_modules"
+  - npm install -g less
   #- npm install zombie@1.4.1
   - bin/behat
 

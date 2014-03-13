@@ -14,6 +14,10 @@ parameters:
     locale:            en
     secret:            MakeYourOwnToken
 
+    # node configuration
+    node.path:         /usr/local/nodejs-bin/bin/node
+    node.module_path:  [/usr/local/node-v0.10.18-linux-x64/lib/node_modules/]
+
     twitter.api_url: https://api.twitter.com/1.1/
     twitter.consumer_key: MyTwitterConsumerKey
     twitter.consumer_secret: MyTwitterConsumerSecret

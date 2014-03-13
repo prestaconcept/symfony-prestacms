@@ -37,8 +37,7 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        lessphp:
-            file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
+        less:
             apply_to: "\.less$"
 
 # Doctrine Configuration

@@ -26,6 +26,11 @@ monolog:
 
 assetic:
     use_controller: true
+    filters:
+        less:
+            node: %node.path%
+            node_paths: %node.module_path%
+            apply_to: "\.less$"
 
 #swiftmailer:
 #    delivery_address: me@example.com
