@@ -34,3 +34,10 @@ presta_cms_core:
                     en:
                         locale: en
                         host: symfony-prestacms.loc
+                integration:
+                    en:
+                        locale: en
+                        host:  en.prestacms-sandbox.integration54.local
+                    fr:
+                        locale: fr
+                        host:  fr.prestacms-sandbox.integration54.local
