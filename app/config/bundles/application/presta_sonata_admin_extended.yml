@@ -1,0 +1,2 @@
+imports:
+    - { resource: '../base/presta_sonata_admin_extended.yml' }

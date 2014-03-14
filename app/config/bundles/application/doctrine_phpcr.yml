@@ -1,0 +1,2 @@
+imports:
+    - { resource: '../base/doctrine_phpcr.yml' }

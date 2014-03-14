@@ -1,0 +1,4 @@
+presta_cms_contact:
+    persistence:
+        orm:
+            enabled: true

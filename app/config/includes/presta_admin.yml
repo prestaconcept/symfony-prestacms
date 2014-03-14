@@ -1,6 +1,6 @@
 imports:
-    - { resource: '../bundles/sonata_admin.yml' }
-    - { resource: '../bundles/sonata_block.yml' }
-    - { resource: '../bundles/sonata_media.yml' }
-    - { resource: '../bundles/sonata_translation.yml' }
-    - { resource: '../bundles/presta_sonata_admin_extended.yml' }
+    - { resource: '../bundles/application/sonata_admin.yml' }
+    - { resource: '../bundles/application/sonata_block.yml' }
+    - { resource: '../bundles/application/sonata_media.yml' }
+    - { resource: '../bundles/application/sonata_translation.yml' }
+    - { resource: '../bundles/application/presta_sonata_admin_extended.yml' }
