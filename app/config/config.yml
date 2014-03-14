@@ -1,8 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: includes/presta_admin.yml }
-    - { resource: includes/presta_cms.yml }
+    - { resource: includes/application.yml }
 
 framework:
     #esi:             ~

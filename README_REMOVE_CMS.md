@@ -9,8 +9,9 @@ If you want to enjoy presta admin bundle without CMS, follow the next instructio
  * **app/autoload.php**: remove PHPCR DoctrineAnnotations registred file
 
  * **app/config/config.yml**:
-    * unset imports for presta_cms file
     * unset *doctrine:orm:entity_managers:default:mappings* CMS bundles list
+ * **app/config/includes/application.yml**:
+    * unset imports for presta_cms file
  * **app/config/routing.yml**: unset CMS bundles routing import
  * **app/config_test.yml**: unset cms website configuration
  * **app/config/parameters.yml.dist**: unset cms social bundle parameters

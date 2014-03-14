@@ -6,23 +6,12 @@ imports:
     - { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config.yml'}
     - { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_navigation.yml' }
     #- { resource: '@PrestaSonataAdminExtendedBundle/Resources/config/media/config_dashboard.yml' }
-    - { resource: '@SonataTranslationBundle/Resources/config/config.yml'}
 
 parameters:
     locale:  en
     locales: [fr, en, it, nl, es]
     presta_sonata_admin_extended.locales: [fr, en]
     presta_sonata_admin_extended.default_locale: en
-
-assetic:
-    bundles:
-        - SonataAdminBundle
-        - PrestaSonataAdminExtendedBundle
-        - ApplicationSonataAdminBundle
-        - ApplicationPrestaCMSCoreBundle
-        - PrestaCMSCoreBundle
-        - PrestaComposerPublicBundle
-        - PrestaCMSThemeBasicBundle
 
 sonata_admin:
     title:      ' '

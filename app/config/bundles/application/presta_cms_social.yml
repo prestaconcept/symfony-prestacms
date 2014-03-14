@@ -1,2 +1,0 @@
-imports:
-    - { resource: '../base/presta_cms_social.yml' }

@@ -1,0 +1,9 @@
+assetic:
+    bundles:
+        - SonataAdminBundle
+        - PrestaSonataAdminExtendedBundle
+        - ApplicationSonataAdminBundle
+        - ApplicationPrestaCMSCoreBundle
+        - PrestaCMSCoreBundle
+        - PrestaComposerPublicBundle
+        - PrestaCMSThemeBasicBundle
