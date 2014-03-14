@@ -80,13 +80,13 @@ apache:
             # required in each vhost
             ip: *
         sandbox.prestacms:
-            servername: sandbox.prestacms.dev
+            servername: sandbox-prestacms.dev
             # not necessary, managed with "listen" key
 #            port: 80
             serveraliases:
-                - sandbox.prestacms.fr.dev
-                - www.sandbox.prestacms.dev
-                - www.sandbox.prestacms.fr.dev
+                - sandbox-prestacms.fr.dev
+                - www.sandbox-prestacms.dev
+                - www.sandbox-prestacms.fr.dev
             docroot: /var/www/Workspace/web
             setenv:
                 - 'APP_ENV dev'
