@@ -9,7 +9,7 @@ imports:
 
 parameters:
     locale:  en
-    locales: [fr, en, it, nl, es]
+    locales: [fr, en]
     presta_sonata_admin_extended.locales: [fr, en]
     presta_sonata_admin_extended.default_locale: en
 
