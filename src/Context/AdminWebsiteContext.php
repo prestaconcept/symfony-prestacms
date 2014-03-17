@@ -51,9 +51,9 @@ class AdminWebsiteContext extends BehatContext
     }
 
     /**
-     * @Then /^I should see the symfony-prestacms website configuration$/
+     * @Then /^I should see the "([^"]*)" website configuration$/
      */
-    public function iShouldSeeTheSymfonyPrestacmsWebsiteConfiguration()
+    public function iShouldSeeTheWebsiteConfiguration($arg1)
     {
         $this->getMainContext()->assertNumElements(3, ".sonata-ba-show table tr");
     }
