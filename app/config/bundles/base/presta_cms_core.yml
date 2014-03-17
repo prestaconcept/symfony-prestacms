@@ -1,13 +1,13 @@
 imports:
     - { resource: '@PrestaCMSThemeBasicBundle/Resources/config/theme/creative.yml' }
 
-parameters:
-    presta_cms.page.factory.class: Application\Presta\CMSCoreBundle\Factory\PageFactory
-
 sonata_admin:
   dashboard:
       blocks:
           - { position: right, type: presta_cms.block.dashboard.cms }
+
+parameters:
+    presta_cms.page.factory.class: Application\Presta\CMSCoreBundle\Factory\PageFactory
 
 presta_cms_core:
     default_website: /website/symfony-prestacms
@@ -26,10 +26,10 @@ presta_cms_core:
                 prod:
                     en:
                         locale: en
-                        host: sandbox.prestacms.com
+                        host: symfony-prestacms.com
                     fr:
                         locale: fr
-                        host:  sandbox.prestacms.fr
+                        host: symfony-prestacms.fr
                 jenkins:
                     en:
                         locale: en
@@ -37,7 +37,7 @@ presta_cms_core:
                 integration:
                     en:
                         locale: en
-                        host:  en.prestacms-sandbox.integration54.local
+                        host:  en.symfony-prestacms.integration54.local
                     fr:
                         locale: fr
-                        host:  fr.prestacms-sandbox.integration54.local
+                        host:  fr.symfony-prestacms.integration54.local

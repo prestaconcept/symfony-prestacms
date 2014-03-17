@@ -8,9 +8,9 @@ imports:
     - { resource: '@PrestaCMSSandboxBundle/Resources/config/config.yml' }
     - { resource: '@PrestaCMSFAQBundle/Resources/config/config_navigation.yml'}
     - { resource: '@PrestaCMSContactBundle/Resources/config/config_navigation.yml'}
-    - { resource: '../bundles/presta_cms_core.yml' }
-    - { resource: '../bundles/presta_cms_contact.yml' }
-    - { resource: '../bundles/presta_cms_social.yml' }
-    - { resource: '../bundles/presta_cms_sitemap_bridge.yml' }
+    - { resource: '../bundles/base/presta_cms_core.yml' }
+    - { resource: '../bundles/base/presta_cms_contact.yml' }
+    - { resource: '../bundles/base/presta_cms_social.yml' }
+    - { resource: '../bundles/base/presta_cms_sitemap_bridge.yml' }
     - { resource: '../phpcr_doctrine_dbal.yml' }
-    - { resource: '../bundles/doctrine_phpcr.yml' }
+    - { resource: '../bundles/base/doctrine_phpcr.yml' }

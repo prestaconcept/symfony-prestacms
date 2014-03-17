@@ -61,7 +61,7 @@ apache:
 # port on which all vhosts will be available (default:80)
     listen: 80
     vhosts:
-        a_first_awesome_vhost:
+        symfony-prestacms:
             servername: symfony-prestacms.com.dev
             # not necessary, managed with "listen" key
 #            port: 80
@@ -69,6 +69,24 @@ apache:
                 - symfony-prestacms.fr.dev
                 - www.symfony-prestacms.com.dev
                 - www.symfony-prestacms.fr.dev
+            docroot: /var/www/Workspace/web
+            setenv:
+                - 'APP_ENV dev'
+                - 'SYMFONY__VAGRANT 1'
+            override:
+                - All
+            # required in each vhost
+            add_listen: false
+            # required in each vhost
+            ip: *
+        sandbox.prestacms:
+            servername: sandbox-prestacms.dev
+            # not necessary, managed with "listen" key
+#            port: 80
+            serveraliases:
+                - sandbox-prestacms.fr.dev
+                - www.sandbox-prestacms.dev
+                - www.sandbox-prestacms.fr.dev
             docroot: /var/www/Workspace/web
             setenv:
                 - 'APP_ENV dev'

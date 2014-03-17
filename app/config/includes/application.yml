@@ -1,0 +1,4 @@
+imports:
+    - { resource: presta_admin.yml }
+    - { resource: presta_cms.yml }
+    # import your bundles configuration here

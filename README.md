@@ -33,7 +33,7 @@ Sandbox is also deployed for a live demonstration :
 
 ### Installation with composer ###
 
-1.   [install composer globally](http://getcomposer.org/doc/00-intro.md#globally) 
+1.   [install composer globally](http://getcomposer.org/doc/00-intro.md#globally)
      or do a : `curl -sS https://getcomposer.org/installer | php`
 
 2.   create database and a database user (optional if you use root db user in step 4)
@@ -47,7 +47,7 @@ Sandbox is also deployed for a live demonstration :
 
 6.   answer remove versioning info = yes if you want to version your project
 
-7.   create a virtual host with 
+7.   create a virtual host with
      `ServerName www.symfony-prestacms.com.dev` and
      `ServerAlias www.symfony-prestacms.fr.dev`
      or other names if you want, but change config in **app/config/bundles/presta_cms_core.yml**
@@ -58,10 +58,10 @@ Sandbox is also deployed for a live demonstration :
 
 10.   run : `make install`
 
-11.  set proper permissions on **app/cache, app/logs and web/uploads**. 
+11.  set proper permissions on **app/cache, app/logs and web/uploads**.
 See [Symfony documentation](http://symfony.com/doc/current/book/installation.html#configuration-and-setup)
 
-12.  point to [english version of your site](http://www.dev-symfony-prestacms.com/app_dev.php) 
+12.  point to [english version of your site](http://www.dev-symfony-prestacms.com/app_dev.php)
 or [the french one](http://www.dev-symfony-prestacms.fr/app_dev.php)
 
 
@@ -77,6 +77,10 @@ or [the french one](http://www.dev-symfony-prestacms.fr/app_dev.php)
 ### Develop your PrestaCMS bundles ###
 
 :book: Documentation is available on [prestaconcept.github.io][4]
+
+### Vagrant ###
+
+:pencil2: Vagrant box is internal at prestaconcept. If you want to use it, join us at prestaconcept.
 
 ## Ask for help ##
 
