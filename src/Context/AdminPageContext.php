@@ -24,12 +24,12 @@ class AdminPageContext extends BehatContext
     /**
      * @Then /^I should see the "([^"]*)" website selection and a link with locale "([^"]*)"$/
      */
-    public function iShouldSeeTheWebsiteSelectionAndALinkWithLocale($arg1, $arg2)
+    public function iShouldSeeTheWebsiteSelectionAndALinkWithLocale($website, $locale)
     {
-        $this->getMainContext()->assertElementContainsText("#website-selector", $arg1);
-        //$this->getMainContext()->assertElementOnPage("#website-selector div:contains($arg1) ul li.locale_$arg2.active");
+        $this->getMainContext()->assertElementContainsText("#website-selector", $website);
+        //$this->getMainContext()->assertElementOnPage("#website-selector div:contains($website) ul li.locale_$locale.active");
         $this->getMainContext()->assertElementOnPage(
-            "#website-selector option[value='/website/$arg1&locale=$arg2']"
+            "#website-selector option[value='/website/$website&locale=$locale']"
         );
     }
 
