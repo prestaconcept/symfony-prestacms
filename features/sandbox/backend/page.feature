@@ -1,13 +1,18 @@
-#@mink:zombie
+@sandbox @backend
 Feature: Page Administration
     In order to manage pages
     I need to be able to list, read and update pages
 
-    Scenario: An admin see a tree of pages
+    Scenario Outline: An admin see a tree of pages
         Given I am connected with "admin" and "admin" on "/admin"
         When I follow dashboard "Pages" link "List"
-        Then I should see the "symfony-prestacms" website selection and a link with selected locale "en"
+        Then I should see the "<website>" website selection and a link with locale "<locale>"
         #And I should see a tree of pages
+
+    Examples:
+        | website           | locale |
+        | sandbox           | fr     |
+        | sandbox           | en     |
 
 #Scenario: An admin see block configurations for a page
 #    Given I am on "/admin/cms/page/website/sandbox/en"
