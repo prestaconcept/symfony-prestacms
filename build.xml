@@ -73,6 +73,7 @@
         </exec>
         <exec executable="${basedir}/bin/behat" failonerror="true">
             <arg line="--profile jenkins" />
+            <arg line="--tags=application" />
         </exec>
     </target>
 
