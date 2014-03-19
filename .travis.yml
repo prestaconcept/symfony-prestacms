@@ -10,6 +10,7 @@ before_script:
   - export NODE_PATH="$(pwd)/node_modules"
   - npm install -g less
   - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - sudo sed -i -e "s,/usr/local/nodejs-bin/lib/node_modules/,$(NODE_PATH)/,g" app/config/parameters.yml
   - make configure
   - make install
   #- npm install zombie@1.4.1
