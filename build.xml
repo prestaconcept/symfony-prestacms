@@ -131,6 +131,7 @@
             <arg line=" --exclude app/cache/*" />
             <arg line=" --exclude app/logs/*" />
             <arg line=" --exclude composer.phar" />
+            <arg line=" --exclude vagrant/*" />
             <arg line=" -f ${releaseName} ." />
         </exec>
 
