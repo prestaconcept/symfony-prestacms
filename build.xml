@@ -119,6 +119,10 @@
             <arg line="app/console assetic:dump --env=prod" />
         </exec>
 
+        <copy todir="${basedir}/varnish">
+            <fileset dir="${basedir}/vagrant/puppet/templates/varnish" excludes="*.erb"/>
+        </copy>
+
         <exec executable="tar" failonerror="true">
             <arg value="-cz" />
             <arg line=" --exclude build" />
