@@ -7,11 +7,11 @@ php:
 before_script:
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
+  - export NODE_PATH="$(pwd)/node_modules"
+  - npm install -g less
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - make configure
   - make install
-  - export NODE_PATH="$(pwd)/node_modules"
-  - npm install -g less
   #- npm install zombie@1.4.1
   - bin/behat
 
