@@ -116,6 +116,10 @@
         </exec>
 
         <exec executable="php" failonerror="true" >
+            <arg line="app/console cache:clear --env=prod" />
+        </exec>
+
+        <exec executable="php" failonerror="true" >
             <arg line="app/console assetic:dump --env=prod" />
         </exec>
 
