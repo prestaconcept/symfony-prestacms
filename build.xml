@@ -33,7 +33,6 @@
         </exec>
         <exec executable="php" failonerror="true" description="Run Install for Composer">
             <env key="SYMFONY__ENV" value="test"/>
-            <!--<arg line="composer.phar install --dev --no-interaction"/>-->
             <arg line="composer.phar update --dev --no-interaction"/>
         </exec>
         <exec executable="php" failonerror="true" description="Run cache:clear in test environment">
