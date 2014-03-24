@@ -15,6 +15,10 @@
         </exec>
         <delete file="${basedir}/composer.lock" failonerror="false" />
         <delete file="${basedir}/app/config/parameters.yml" failonerror="false" />
+
+        <exec executable="rm" failonerror="false">
+            <arg line="revision-*" />
+        </exec>
     </target>
 
     <target name="prepare" depends="clean" description="Prepare for build">
@@ -121,6 +125,10 @@
 
         <exec executable="php" failonerror="true" >
             <arg line="app/console assetic:dump --env=prod" />
+        </exec>
+
+        <exec executable="touch" failonerror="true">
+            <arg line="revision-${env.GIT_COMMIT}" />
         </exec>
 
         <copy todir="${basedir}/varnish">
