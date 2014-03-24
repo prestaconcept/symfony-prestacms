@@ -27,7 +27,8 @@ install:
 
 update-dev:
 	app/console cache:clear --env=$(ENV)
-	install
+	make drop-db
+	make install
 
 update-prod:
 	app/console cache:clear --env=$(ENV)
