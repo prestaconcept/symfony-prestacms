@@ -21,3 +21,6 @@ parameters:
     twitter.access_token_secret: MyTwitterAccessTokenSecret
 
     presta_cms.environment: jenkins
+
+    node.path: /usr/local/nodejs-bin/bin/node
+    node.module_path: [/usr/local/nodejs-bin/lib/node_modules/]
