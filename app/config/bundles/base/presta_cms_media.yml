@@ -1,4 +1,4 @@
 presta_cms_media:
     persistence:
         orm:
-            enabled: false
+            enabled: true
